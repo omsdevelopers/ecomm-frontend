@@ -16,7 +16,7 @@ const MunfimCountdown = dynamic(
 );
 const Index2 = () => {
   return (
-    <Layout header={2}>
+    <Layout header={2} footer={3}>
       <section
         className="slider-section slider-two"
         style={{ background: "url(assets/images/slider/slider-two-bg.jpg)" }}

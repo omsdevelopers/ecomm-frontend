@@ -7,7 +7,7 @@ import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layout/Layout";
 const Faqs = () => {
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"FAQs"} />
       <section className="what-we-want rel z-1 bg-lighter pt-130 rpt-100 pb-95 rpb-65">
         <div className="container">

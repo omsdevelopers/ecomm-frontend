@@ -137,7 +137,7 @@ const Checkout = () => {
   };
 
   return (
-    <Layout>
+    <Layout footer={3}>
       <RazorpayScript />
       <PageBanner pageName={"Checkout"} />
       <div className="checkout-form-area py-130 rpy-100">

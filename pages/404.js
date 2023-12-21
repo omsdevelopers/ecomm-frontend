@@ -3,7 +3,7 @@ import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layout/Layout";
 const E404 = () => {
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"404"} pageTitle={"404 Error"} />
       <section className="error-section rel z-1 py-130 rpy-100">
         <div className="container">

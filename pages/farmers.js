@@ -11,7 +11,7 @@ const Counter = dynamic(() => import("../src/components/Counter"), {
 });
 const Farmers = () => {
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Expert Farmers"} />
       <section className="team-page-area pt-130 rpt-100 pb-95 rpb-65">
         <div className="container">

@@ -54,14 +54,12 @@ const DefaultFooter = () => (
             <div className="footer-logo mb-30">
               <Link href="/">
                 <a>
-                  <img src="assets/images/logos/logo.png" alt="Logo" />
+                <h3> Bharath AB</h3>
                 </a>
               </Link>
             </div>
             <p>
-              Sit amet consectetur adipiscing elit sed eiusmod tempor incididunt
-              ut labore et dolore magna aliqua. quis ipsum suspendisse ultrices
-              gravida.
+            Organic food and vegetables are cultivated without synthetic pesticides or fertilizers, emphasizing natural farming methods. These products are free from genetically modified organisms (GMOs) and promote sustainable agriculture. 
             </p>
             <div className="social-style-two pt-10">
               <Link href="/contact">
@@ -150,7 +148,7 @@ const DefaultFooter = () => (
           <div className="footer-widget contact-widget">
             <h4 className="footer-title">Contact Us</h4>
             <p>
-              Quis autem vel eum reprehenderit voluptate velit esse quamnue{" "}
+            "Nutrient-rich organic produce for wholesome living and vibrant health.{" "}
             </p>
             <ul>
               <li>
@@ -170,7 +168,8 @@ const DefaultFooter = () => (
         </div>
       </div>
       <div className="copyright-area pt-25 pb-10">
-        <p>Copyright © 2022 MunFirm. All Rights Reserved.</p>
+        <p>Copyright © 2022 Bharath AB
+. All Rights Reserved.</p>
         <ul className="footer-menu">
           <li>
             <Link href="/contact">Setting &amp; Privacy</Link>
@@ -246,17 +245,12 @@ const Footer3 = () => (
                 <div className="footer-logo mb-30">
                   <Link href="/">
                     <a>
-                      <img
-                        src="assets/images/logos/logo-two-white.png"
-                        alt="Logo"
-                      />
+                   <h3> Bharath AB</h3>
                     </a>
                   </Link>
                 </div>
                 <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam eaque
-                  epsa quae abillo inventore veritatis quasi architecto
+                Organic food and vegetables are cultivated without synthetic pesticides or fertilizers,  reduces exposure to harmful chemicals, and contributes to a healthier lifestyle.
                 </p>
                 <div className="social-style-two pt-10">
                   <Link href="/contact">
@@ -366,7 +360,7 @@ const Footer3 = () => (
               <div className="footer-widget contact-widget">
                 <h4 className="footer-title">Contact Us</h4>
                 <p>
-                  Quis autem vel eum reprehenderit voluptate velit esse quamnue{" "}
+                Nutrient-rich organic produce for wholesome living and vibrant health.{" "}
                 </p>
                 <ul>
                   <li>
@@ -452,21 +446,22 @@ const Footer3 = () => (
     <div className="copyright-area-wrap">
       <div className="container-fluid">
         <div className="copyright-area pt-25 pb-10">
-          <p>Copyright © 2022 MunFirm. All Rights Reserved.</p>
+          <p>Copyright © 2022 Bharath AB
+. All Rights Reserved.</p>
           <ul className="footer-menu">
             <li>
-              <Link href="/contact">
-                <a>Setting &amp; Privacy</a>
+              <Link href="\termsCondition">
+                <a>Terms  &amp;  condition</a>
               </Link>
             </li>
             <li>
-              <Link href="/faqs">
-                <a>Faqs</a>
+              <Link href="/PrivacyPolicy">
+                <a>Privacy Policy</a>
               </Link>
             </li>
             <li>
-              <Link href="/contact">
-                <a>Payments</a>
+              <Link href="/ShippingPolicy">
+                <a>Shipping Policy</a>
               </Link>
             </li>
           </ul>

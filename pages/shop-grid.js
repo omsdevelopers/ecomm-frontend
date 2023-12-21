@@ -2,24 +2,59 @@ import Link from "next/link";
 import PageBanner from "../src/components/PageBanner";
 import Pagination from "../src/components/Pagination";
 import Layout from "../src/layout/Layout";
+import { useState } from 'react';
+import styles from './CustomSelect.module.css'; // Import the CSS module
+
 const ShopGrid = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('default');
+
+  const options = [
+    { value: 'default', label: 'Best Selling' },
+    { value: 'new', label: 'Latest' },
+    { value: 'old', label: 'Oldest' },
+    { value: 'high-to-low', label: 'High To Low' },
+    { value: 'low-to-high', label: 'Low To High' },
+  ];
+  const handleSelect = (value) => {
+    setSelectedOption(value);
+    setIsOpen(false);
+    // Add any additional logic you need here
+  };
+
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Shop Grid"} />
       <section className="shop-page rel z-1 pt-120 rpt-90 pb-130 rpb-100">
         <div className="container">
-          <div className="shop-shorter rel z-3 pt-10 mb-40 wow fadeInUp delay-0-2s">
-            <div className="products-dropdown">
-              <select>
-                <option value="default" selected="">
-                  Best Selling
-                </option>
-                <option value="new">Latest</option>
-                <option value="old">Oldest</option>
-                <option value="hight-to-low">High To Low</option>
-                <option value="low-to-high">Low To High</option>
-              </select>
+<div className="row">
+<div className=" col-2" style={{marginBottom:'50px'}}>
+          <div className={styles.customSelect}>
+            <div
+              className={`${styles.selectHeader} ${isOpen ? styles.open : ''}`}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {options.find((opt) => opt.value === selectedOption)?.label || 'Select an option'}
             </div>
+            {isOpen && (
+              <ul className={styles.optionsList}>
+                {options.map((option) => (
+                  <li
+                    key={option.value}
+                    className={`${styles.option} ${selectedOption === option.value ? styles.selected : ''}`}
+                    onClick={() => handleSelect(option.value)}
+                  >
+                    {option.label}
+                  </li>
+                ))}
+              </ul>
+            )}</div>
+          </div>
+      
+       {/* <div className=" col"style={{marginLeft:'600px'}}>
+          <div className="shop-shorter rel z-3 pt-10 mb-40 wow fadeInUp delay-0-2s">
+
             <ul className="grid-list">
               <li>
                 <a href="#">
@@ -32,6 +67,7 @@ const ShopGrid = () => {
                 </a>
               </li>
             </ul>
+          </div> </div> */}
           </div>
           <div className="row show-grid-row">
             <div className="col-xl-3 col-lg-4 col-sm-6">

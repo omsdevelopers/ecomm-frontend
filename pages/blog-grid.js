@@ -4,7 +4,7 @@ import Pagination from "../src/components/Pagination";
 import Layout from "../src/layout/Layout";
 const BlogGrid = () => {
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Blog Grid"} />
       <section className="news-page-section rel z-1 py-130 rpy-100">
         <div className="container">

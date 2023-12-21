@@ -288,8 +288,7 @@ const Index3 = () => {
                 <h2>Special Deal Of This Week</h2>
               </div>
               <p>
-                On the other hand we denounce with righteous indignation and
-                dislike men who are beguiled and demoralized by the charms
+              "Indulge in the goodness of nature! Enjoy a delightful 35% off on our exquisite selection of fresh and flavorful fruits. Elevate your well-being with the perfect blend of taste and health. Hurry, savor the savings while they last!"
               </p>
               <MunfimCountdown />
               <div className="count-down-btns mt-10">

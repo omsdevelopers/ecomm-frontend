@@ -31,7 +31,7 @@ const WishlistPage = () => {
     },
   ]);
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Wishlist Page"} />
       <div className="wishlist-area py-130 rpy-100">
         <div className="container">

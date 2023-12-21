@@ -13,7 +13,7 @@ const PortfolioFluidIsotope = dynamic(
 
 const PortfolioFluid = () => {
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Portfolio Fluid"} />
       <PortfolioFluidIsotope />
       {/* Portfolio Fluid End */}

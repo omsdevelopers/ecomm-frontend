@@ -80,7 +80,7 @@ const CartPage = () => {
   console.log("total", subTotal);
 
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Cart Page"} />
       <div className="cart-area py-130 rpy-100">
         <div className="container">

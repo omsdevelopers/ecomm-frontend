@@ -1,0 +1,11 @@
+/* components/CustomSelect.module.css */
+.customSelect {
+    position: relative;
+  }
+  
+  .selectHeader {
+    padding: 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+ 

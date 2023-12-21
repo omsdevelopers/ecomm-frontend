@@ -119,3 +119,11 @@ export const Contact = () => (
     </li>
   </Fragment>
 );
+export const Profile = () => (
+  <Fragment>
+    <li>
+      <Link href= "/profile">
+      </Link>
+    </li>
+  </Fragment>
+)

@@ -4,7 +4,7 @@ import Pagination from "../src/components/Pagination";
 import Layout from "../src/layout/Layout";
 const ShopLeftSidebar = () => {
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Products"} />
       <section className="shop-page rel z-1 pt-65 rpt-35 pb-130 rpb-100">
         <div className="container">

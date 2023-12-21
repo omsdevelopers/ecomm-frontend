@@ -16,7 +16,7 @@ const MunfimCountdown = dynamic(
 );
 const Index = () => {
   return (
-    <Layout header={1}>
+    <Layout header={1} footer={3}>
       {/*End Hidden Sidebar */}
       {/* Slider Section Start */}
       <section className="slider-section bg-lighter">

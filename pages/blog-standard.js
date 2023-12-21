@@ -4,7 +4,7 @@ import Pagination from "../src/components/Pagination";
 import Layout from "../src/layout/Layout";
 const BlogStandard = () => {
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Blog Standard"} />
       <section className="news-standard-page rel z-1 pt-65 rpt-35 pb-130 rpb-100">
         <div className="container">
