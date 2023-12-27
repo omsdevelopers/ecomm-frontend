@@ -9,7 +9,7 @@ const PortfolioDetails = () => {
 
   
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Portfolio Details"} />
       <section className="portfolio-details-area rel z-1 py-130 rpy-100">
         <div className="container">

@@ -6,7 +6,7 @@ import Layout from "../src/layout/Layout";
 import { productActiveTwo } from "../src/sliderProps";
 const ProductDetails = () => {
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Product Details"} />
       <section className="product-details-area pt-130 rpt-100">
         <div className="container">

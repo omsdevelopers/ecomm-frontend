@@ -26,7 +26,7 @@ const Login = () => {
 
   return (
 
-    <Layout>
+    <Layout footer={3}>
     <PageBanner pageName={"Login"} ></PageBanner>
     <div className="container mt-5">
       <div className="row justify-content-center">

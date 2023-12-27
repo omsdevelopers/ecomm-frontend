@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "tittle":"Cattot",
+        "price":"$200",
+        "delPrice":"$500",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbyXh-kJpGvxhV0XDTWQ_w5t2uBcQaJLIDSg&usqp=CAU",
+        "stock":"In Stock"
+        
+    },
+
+    {
+        "id":2,
+        "tittle":"Tomato",
+        "price":"$100",
+        "delPrice":"$300",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVF_09yYDBt6yktxldbXVoanEposZKUOLZZw&usqp=CAU",
+        "stock":"In Stock"
+        
+    },
+
+    {
+        "id":3,
+        "tittle":"Bittergourd",
+        "price":"$50",
+        "delPrice":"$100",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNWslQcV9MqojntZc031DNGoYlDnLcJQuQS4ByH2Wo6HsZ8nzoKDVq88kQflwKKjXm_Q&usqp=CAU",
+        "stock":"In Stock"
+        
+    },
+
+    {
+        "id":4,
+        "tittle":"Drumstick",
+        "price":"$70",
+        "delPrice":"$120",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZY4FYpkGo-5CzJ71vubihT06F82Htqivb3g&usqp=CAU",
+        "stock":"In Stock"
+        
+    }
+
+   
+
+]

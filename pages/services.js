@@ -6,7 +6,7 @@ import CustomerReviews from "../src/components/slider/CustomerReviews";
 import Layout from "../src/layout/Layout";
 const Services = () => {
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Services"} />
       <section className="who-we-are rel z-1 pt-130 rpt-100">
         <div className="container">

@@ -7,7 +7,7 @@ import PhotoGallery from "../src/components/slider/PhotoGallery";
 import Layout from "../src/layout/Layout";
 const About = () => {
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"about us"} />
       {/* Page Banner End */}
       {/* About Section Start */}

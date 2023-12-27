@@ -38,7 +38,7 @@ const Signup = () => {
   };
 
   return (
-    <Layout>
+    <Layout footer={3}>
       <PageBanner pageName={"Signup"}></PageBanner>
       <div className="container mt-5">
         <div className="row justify-content-center">

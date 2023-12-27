@@ -32,13 +32,15 @@ function MyApp({ Component, pageProps }) {
         {/* Magnific Popup */}
         <link rel="stylesheet" href="/assets/css/magnific-popup.min.css" />
         {/* Nice Select */}
-        <link rel="stylesheet" href="/assets/css/nice-select.min.css" />
+        {/* <link rel="stylesheet" href="/assets/css/nice-select.min.css" /> */}
         {/* Animate */}
         <link rel="stylesheet" href="/assets/css/animate.min.css" />
         {/* Slick */}
         <link rel="stylesheet" href="/assets/css/slick.min.css" />
         {/* Main Style */}
         <link rel="stylesheet" href="/assets/css/style.css" />
+
+      
       </Head>
       <ToastProvider placement="top-center" autoDismissTimeout={3000}>
         <Component {...pageProps} />
