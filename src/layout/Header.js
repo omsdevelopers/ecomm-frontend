@@ -5,6 +5,7 @@ import { Blog, Contact, Home, PagesDasktop, Portfolio, Shop } from "./Menus";
 import MobileMenu from "./MobileMenu";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { Dropdown } from "react-bootstrap";
 
 const Header = ({ header }) => {
   switch (header) {
@@ -213,16 +214,20 @@ const DefaultHeader = () => {
                 </button>
               </Link>
               {isLoggedIn ? (
-                <button className="user" onClick={handleLogout}>
-                  <span style={{ display: "flex" }}>
-                    {" "}
-                    <i
-                      style={{ marginTop: "6px", marginRight: "5px" }}
-                      className="far fa-user-circle"
-                    />{" "}
-                    {user.name}
-                  </span>
-                </button>
+                <div style={{ marginLeft: "50px" }}>
+                  <Dropdown>
+                    <Dropdown.Toggle variant="secondary" id="userDropdown">
+                      <i className="far fa-user-circle mr-2"></i>
+                      {user.name}
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="/my-orders">My Orders</Dropdown.Item>
+                      <Dropdown.Item onClick={handleLogout}>
+                        Logout
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
               ) : (
                 <Link href="/signup">
                   <button className="user">
@@ -367,16 +372,20 @@ const Header1 = () => {
                 </button>
               </Link>
               {isLoggedIn ? (
-                <button className="user" onClick={handleLogout}>
-                  <span style={{ display: "flex" }}>
-                    {" "}
-                    <i
-                      style={{ marginTop: "6px", marginRight: "5px" }}
-                      className="far fa-user-circle"
-                    />{" "}
-                    {user.name}
-                  </span>
-                </button>
+                <div style={{ marginLeft: "50px" }}>
+                  <Dropdown>
+                    <Dropdown.Toggle variant="secondary" id="userDropdown">
+                      <i className="far fa-user-circle mr-2"></i>
+                      {user.name}
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="/my-orders">My Orders</Dropdown.Item>
+                      <Dropdown.Item onClick={handleLogout}>
+                        Logout
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
               ) : (
                 <Link href="/signup">
                   <button className="user">
