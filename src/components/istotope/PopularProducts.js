@@ -105,7 +105,7 @@ const PopularProducts = ({ products }) => {
               <div className="image">
                 {/* Assuming your image path is static/assets/images/products/ */}
                 <img
-                  src={`${imageurl}/storage/app/public/images/${product.image}`}
+                  src={product.image}
                   alt={product.name}
                   style={{
                     height: "185px",

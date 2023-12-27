@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import ClientLogoSlider from "../src/components/ClientLogoSlider";
 import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layout/Layout";
-import { cartList } from "../utils/api";
+import { cartList, delCart } from "../utils/api";
+import { useToasts } from "react-toast-notifications";
 
 const CartPage = () => {
+  const { addToast } = useToasts();
   const [cartData, setCartData] = useState();
 
   // total price
@@ -30,7 +32,6 @@ const CartPage = () => {
       const { cartItem } = await cartList(id, session);
       setCartData(cartItem);
 
-      console.log("cart", cartData);
       if (Array.isArray(cartItem)) {
         const productIds = cartItem.map((item) => item.product_id);
         localStorage.setItem("product_id", JSON.stringify(productIds));
@@ -78,22 +79,37 @@ const CartPage = () => {
   };
 
   console.log("total", subTotal);
+  console.log("cart", cartData);
+
+  const deleteCart = async (id) => {
+    try {
+      const data = await delCart(id)
+      cart();
+      addToast("Cart Deleted", {
+        appearance: "success",
+        autoDismiss: true,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Layout footer={3}>
       <PageBanner pageName={"Cart Page"} />
-      {cartData.length > 0 ? (
+      {cartData?.length > 0 ? (
         <div className="cart-area py-130 rpy-100">
           <div className="container">
             <div className="cart-item-wrap mb-35 wow fadeInUp delay-0-2s">
-              {cartData.length > 0 &&
+              {cartData &&
                 cartData.map((cart, i) => (
                   <div className="cart-single-item" key={i}>
                     <button
                       type="button"
                       className="close"
                       onClick={() =>
-                        setCartData(cartData.filter((c) => c.id !== cart.id))
+                        // setCartData(cartData.filter((c) => c.id !== cart.id))
+                        deleteCart(cart.id)
                       }
                     >
                       <span aria-hidden="true">×</span>
@@ -101,8 +117,8 @@ const CartPage = () => {
                     <div className="cart-img">
                       <img src={cart.product_image} alt="Product Image" />
                     </div>
-                    <h5 className="product-name">{cart.title}</h5>
-                    <span className="product-price">{Number(cart.total)}</span>
+                    <h5 className="product-name">{cart.name}</h5>
+                    <span className="product-price">{Number(cart?.total)}</span>
                     <div className="quantity-input">
                       <button
                         className="quantity-down"
@@ -113,7 +129,9 @@ const CartPage = () => {
                       <input
                         className="quantity"
                         type="text"
-                        defaultValue={cart.quantity}
+                        defaultValue={
+                          cart.quantity !== null ? cart.quantity : 1
+                        }
                         value={cart.quantity}
                         name="quantity"
                       />
@@ -203,7 +221,7 @@ const CartPage = () => {
         </div>
       ) : (
         <>
-          <center style={{margin:"200px"}}>No data found</center>
+          <center style={{ margin: "200px" }}>No data found</center>
         </>
       )}
       {/* Cart Area End */}

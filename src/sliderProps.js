@@ -135,19 +135,19 @@ export const productActiveTwo = {
   arrows: false,
   speed: 1000,
   focusOnSelect: true,
-  slidesToShow: 4,
-  slidesToScroll: 2,
+  slidesToShow: 1,  // Set to 1 to display only one slide
+  slidesToScroll: 1,  // Also set to 1 to scroll one slide at a time
   responsive: [
     {
       breakpoint: 1200,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 1,
       },
     },
     {
       breakpoint: 992,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 1,
       },
     },
     {

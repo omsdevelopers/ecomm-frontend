@@ -72,7 +72,7 @@ const ProductDetails = () => {
         product_id: product.id,
         name: product.name,
         size: 0,
-        quantity,
+        quantity: quantity || 1,
         price: product.price,
         total: totalPrice,
         user_id: user ? user.id : null,
@@ -108,9 +108,9 @@ const ProductDetails = () => {
           <div className="row align-items-center justify-content-between">
             <div className="col-lg-6">
               {/* <div className="product-preview-images rmb-55 wow fadeInLeft delay-0-2s"> */}
-              <a href={`${imageurl}/storage/app/public/images/${product.image}`}>
+              <a href={product.image}>
                 <img
-                  src={`${imageurl}/storage/app/public/images/${product.image}`}
+                  src={product.image}
                   width={"600"}
                   alt="Preview"
                 />
@@ -374,7 +374,11 @@ const ProductDetails = () => {
                 style={{ height: "300px" }}
               >
                 <div className="image">
-                  <img src={product.image} alt="Product" />
+                  <img src={product.image}   style={{
+                    height: "185px",
+                    width: "100%",
+                    objectFit: "contain",
+                  }} alt="Product" />
                 </div>
                 <div className="content">
                   <div className="ratting">

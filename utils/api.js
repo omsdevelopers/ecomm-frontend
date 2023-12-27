@@ -2,7 +2,7 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
 const api = axios.create({
-  baseURL:  process.env.NEXT_PUBLIC_BASE_URL,
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
 
 export const fetchData = async (url) => {
@@ -74,19 +74,26 @@ export const cartList = async (userId, sessionId) => {
   }
 };
 
-
 export const myOrder = async (user_id, session_id) => {
   try {
-
     console.log("dadadadadadadaad", user_id);
     const { data } = await api.post("/orders", {
       user_id,
       session_id,
     });
 
-
     return data.myorder;
   } catch (error) {
     throw error.response;
+  }
+};
+
+export const delCart = async (id) => {
+  try {
+    const { data } = await api.get(`/deleteCartItem/${id}`);
+
+    return data;
+  } catch (error) {
+    throw error;
   }
 };
