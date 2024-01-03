@@ -62,9 +62,15 @@ const ProductDetails = () => {
     let user = JSON.parse(localStorage.getItem("user")) || {};
     let storedSessionId = localStorage.getItem("cart_session") || {};
 
-    if (!storedSessionId) {
+    if (
+      typeof storedSessionId === "object" &&
+      Object.keys(storedSessionId).length === 0
+    ) {
+      console.log("Inside if block");
       storedSessionId = uuidv4();
       localStorage.setItem("cart_session", storedSessionId);
+    } else {
+      console.log("Inside else block");
     }
 
     try {
@@ -109,11 +115,7 @@ const ProductDetails = () => {
             <div className="col-lg-6">
               {/* <div className="product-preview-images rmb-55 wow fadeInLeft delay-0-2s"> */}
               <a href={product.image}>
-                <img
-                  src={product.image}
-                  width={"600"}
-                  alt="Preview"
-                />
+                <img src={product.image} width={"600"} alt="Preview" />
               </a>
               {/* </div> */}
             </div>
@@ -173,189 +175,7 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-          <Tab.Container defaultActiveKey={"details"}>
-            <Nav className="nav nav-tabs product-information-tab pt-35 mb-25">
-              <li>
-                <Nav.Link
-                  eventKey={"details"}
-                  href="#details"
-                  data-toggle="tab"
-                >
-                  Description
-                </Nav.Link>
-              </li>
-              <li>
-                <Nav.Link
-                  eventKey={"information"}
-                  href="#information"
-                  data-toggle="tab"
-                >
-                  Additional information
-                </Nav.Link>
-              </li>
-              <li>
-                <Nav.Link eventKey={"review"} href="#review" data-toggle="tab">
-                  Review (05)
-                </Nav.Link>
-              </li>
-            </Nav>
-            <Tab.Content className="tab-content wow fadeInUp delay-0-2s">
-              <Tab.Pane className="tab-pane" eventKey="details">
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae ab illo inventore verit atis et quasi architecto
-                  beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
-                  quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                  consequuntur magni dolores eos qui ratione voluptatem sequi
-                  nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
-                  dolor sit amet, consectetur, adipisci velit sed quia non
-                  numquam eius modi tempora incidunt ut labore et dolore magnam
-                  aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
-                  nostrum exercitationem ullam corporis suscipit laboriosam,
-                  nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum
-                  iure reprehenderit qui in ea voluptate velit esse quam nihil
-                  molestiae consequatur, vel illum qui dolorem eum
-                </p>
-                <ul className="list-style-one">
-                  <li>The Complete Guide To Switching From HTTP To HTTPS</li>
-                  <li>
-                    Ultimate Digital Clean-Up Checklist: Are You Prepared For
-                    The New Year?
-                  </li>
-                  <li>
-                    How To Roll Out New Features Without Hurting Loyal Users
-                  </li>
-                </ul>
-              </Tab.Pane>
-              <Tab.Pane className="tab-pane" eventKey="information">
-                <p>
-                  inventore veritatis et quasi architecto beatae vitae dicta
-                  sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                  aspernatur aut odit aut fugit, sed quia consequuntur magni
-                  dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
-                  quisquam est, qui dolorem ipsum quia dolor sit amet,
-                  consectetur, adipisci velit, sed quia non numquam
-                </p>
-                <ul className="list-style-one mt-25 mb-25">
-                  <li>Strong lens for long distance surveillance.</li>
-                  <li>WIFI technology can view and view the Internet</li>
-                  <li>Wide Angle and Long Length</li>
-                  <li>Smart zooming point</li>
-                  <li>HD quality video output.</li>
-                  <li>Smart Alarming System</li>
-                  <li>Power system 12 volts (without adapter)</li>
-                </ul>
-                <p>
-                  Now wherever you are, wherever you are, you can easily monitor
-                  your CCTV videos through your mobile, tab, laptop or PC. With
-                  the wireless camera, you can view the camera from your mobile
-                  or computer to the right-left 0 to 360-degree video. Cover the
-                  flower room with a camera.
-                </p>
-              </Tab.Pane>
-              <Tab.Pane className="tab-pane" eventKey="review">
-                <ul className="comment-list">
-                  <li>
-                    <div className="comment-body">
-                      <div className="author-thumb">
-                        <img
-                          src="assets/images/products/review-author1.jpg"
-                          alt="Author"
-                        />
-                      </div>
-                      <div className="comment-content">
-                        <div className="name-date">
-                          <h6>John F. Medina</h6>
-                          <span className="comment-date">25 Feb 2022</span>
-                          <div className="ratting">
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                          </div>
-                        </div>
-                        <p>
-                          Quis autem vel eum iure reprehenderit quin voluptate
-                          velit esseeso quam nihile molestiae consequatur
-                          veillum quolore
-                        </p>
-                        <a href="#" className="reply-link">
-                          Reply <i className="fas fa-long-arrow-alt-right" />
-                        </a>
-                      </div>
-                    </div>
-                    <ul className="children">
-                      <li>
-                        <div className="comment-body">
-                          <div className="author-thumb">
-                            <img
-                              src="assets/images/products/review-author2.jpg"
-                              alt="Author"
-                            />
-                          </div>
-                          <div className="comment-content">
-                            <div className="name-date">
-                              <h6>Somalia D. Silva</h6>
-                              <span className="comment-date">25 Feb 2022</span>
-                              <div className="ratting">
-                                <i className="fas fa-star" />
-                                <i className="fas fa-star" />
-                                <i className="fas fa-star" />
-                                <i className="fas fa-star" />
-                                <i className="fas fa-star" />
-                              </div>
-                            </div>
-                            <p>
-                              Quis autem vel eum iure reprehenderit quin
-                              voluptate velit esseeso quam nihile molestiae
-                              consequatur veillum quolore
-                            </p>
-                            <a href="#" className="reply-link">
-                              Reply{" "}
-                              <i className="fas fa-long-arrow-alt-right" />
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div className="comment-body">
-                      <div className="author-thumb">
-                        <img
-                          src="assets/images/products/review-author3.jpg"
-                          alt="Author"
-                        />
-                      </div>
-                      <div className="comment-content">
-                        <div className="name-date">
-                          <h6>Roger A. Torrence</h6>
-                          <span className="comment-date">25 Feb 2022</span>
-                          <div className="ratting">
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                            <i className="fas fa-star" />
-                          </div>
-                        </div>
-                        <p>
-                          Quis autem vel eum iure reprehenderit quin voluptate
-                          velit esseeso quam nihile molestiae consequatur
-                          veillum quolore
-                        </p>
-                        <a href="#" className="reply-link">
-                          Reply <i className="fas fa-long-arrow-alt-right" />
-                        </a>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </Tab.Pane>
-            </Tab.Content>
-          </Tab.Container>
+         
         </div>
       </section>
       {/* Product Details End */}
@@ -374,11 +194,15 @@ const ProductDetails = () => {
                 style={{ height: "300px" }}
               >
                 <div className="image">
-                  <img src={product.image}   style={{
-                    height: "185px",
-                    width: "100%",
-                    objectFit: "contain",
-                  }} alt="Product" />
+                  <img
+                    src={product.image}
+                    style={{
+                      height: "185px",
+                      width: "100%",
+                      objectFit: "contain",
+                    }}
+                    alt="Product"
+                  />
                 </div>
                 <div className="content">
                   <div className="ratting">

@@ -1,7 +1,7 @@
 import Isotope from "isotope-layout";
 import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
-
+import Spinner from "react-bootstrap/Spinner";
 
 const PopularProducts = ({ products }) => {
   // Isotope
@@ -89,52 +89,62 @@ const PopularProducts = ({ products }) => {
         </div> */}
       </div>
 
-      <div className="row popular-products-active">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6 item fruits bread"
-            style={{ display: "flex", flexDirection: "column" }}
-          >
-            <div
-              className="product-item wow fadeInUp delay-0-2s"
-              style={{ flex: "1" }}
-            >
-              {/* Displaying discount offer if available */}
-              <span className="offer">50% Off</span>
-              <div className="image">
-                {/* Assuming your image path is static/assets/images/products/ */}
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  style={{
-                    height: "185px",
-                    width: "100%",
-                    objectFit: "contain",
-                  }}
-                />
-              </div>
-              <div className="content">
-                <div className="ratting">
-                  {/* Displaying star rating */}
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <i key={index} className="fas fa-star" />
-                  ))}
+      <div className="row">
+        {products.length > 0 ? (
+          <>
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 item fruits bread"
+                style={{ display: "flex", flexDirection: "column" }}
+              >
+                <div
+                  className="product-item wow fadeInUp delay-0-2s"
+                  style={{ flex: "1" }}
+                >
+                  {/* Displaying discount offer if available */}
+                  <span className="offer">50% Off</span>
+                  <div className="image">
+                    {/* Assuming your image path is static/assets/images/products/ */}
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      style={{
+                        height: "185px",
+                        width: "100%",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+                  <div className="content">
+                    <div className="ratting">
+                      {/* Displaying star rating */}
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <i key={index} className="fas fa-star" />
+                      ))}
+                    </div>
+                    <h5 style={{ height: "50px", overflow: "hidden" }}>
+                      {/* Linking to product details page */}
+                      <Link href={`/product-details/${product.id}`}>
+                        {product.name}
+                      </Link>
+                    </h5>
+                    <span className="price">
+                      {/* Displaying original and discounted prices */}
+                      {product.price && <span>{product.price}</span>}
+                    </span>
+                  </div>
                 </div>
-                <h5 style={{ height: "50px", overflow: "hidden" }}>
-                  {/* Linking to product details page */}
-                  <Link href={`/product-details/${product.id}`}>
-                    {product.name}
-                  </Link>
-                </h5>
-                <span className="price">
-                  {/* Displaying original and discounted prices */}
-                  {product.price && <span>{product.price}</span>}
-                </span>
               </div>
-            </div>
-          </div>
-        ))}
+            ))}
+          </>
+        ) : (
+          <>
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </>
+        )}
       </div>
     </Fragment>
   );

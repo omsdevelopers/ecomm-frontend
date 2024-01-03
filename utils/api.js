@@ -76,7 +76,6 @@ export const cartList = async (userId, sessionId) => {
 
 export const myOrder = async (user_id, session_id) => {
   try {
-    console.log("dadadadadadadaad", user_id);
     const { data } = await api.post("/orders", {
       user_id,
       session_id,
@@ -93,6 +92,42 @@ export const delCart = async (id) => {
     const { data } = await api.get(`/deleteCartItem/${id}`);
 
     return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const listCetegory = async () => {
+  try {
+    const { data } = await api.get('/records');
+
+    return data.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+export const cetegoryByproducts = async (id) => {
+  try {
+    const { data } = await api.get(`/category/${id}`);
+
+    return data.products;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const messageUS = async (datas) => {
+  try {
+    const { data } = await api.post("/message", {
+      name: datas.name,
+      phone: datas.phone,
+      email: datas.email,
+      message: datas.message,
+    });
+
+    return data.message;
   } catch (error) {
     throw error;
   }

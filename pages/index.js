@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import { HomeSlider3 } from "../src/components/HomeSlider";
 import { clientLogo } from "../src/sliderProps";
 import React, { useEffect, useState } from "react";
-import { fetchData } from "../utils/api";
+import { fetchData, listCetegory } from "../utils/api";
 
 const TrendyProducts = dynamic(
   () => import("../src/components/istotope/TrendyProducts"),
@@ -31,10 +31,17 @@ const Index3 = () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  const fetchCategory = async () => {
+    const data = await listCetegory();
+
+    setCategories(data);
+  };
 
   useEffect(() => {
     const apiUrl = `${baseUrl}/products`;
-
+    fetchCategory();
     // Fetch data when the component mounts
     fetchData(apiUrl)
       .then((data) => setProducts(data))
@@ -171,108 +178,28 @@ const Index3 = () => {
         <div className="container-fluid">
           <div className="product-category-inner">
             <div className="row justify-content-center">
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <div className="product-category-item wow fadeInUp delay-0-2s">
-                  <div className="image">
-                    <img
-                      src="assets/images/products/product28.png"
-                      alt="Product"
-                    />
-                  </div>
-                  <div className="content">
-                    <h4>
-                      <Link href={`/category/${1}`}>Organic Fruits</Link>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <div className="product-category-item wow fadeInUp delay-0-3s">
-                  <div className="image">
-                    <img
-                      src="assets/images/products/product29.png"
-                      alt="Product"
-                    />
-                  </div>
-                  <div className="content">
-                    <h4>
-                      <Link href="/product-details">Vegetables</Link>
-                    </h4>
+              {categories && categories?.map((category) => (
+                <div key={category.id} className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                  <div className="product-category-item wow fadeInUp">
+                    <div className="image">
+                      <img src={category.image} alt={category.name} />
+                    </div>
+                    <div className="content">
+                      <h4>
+                        <Link href={`/category/${category.id}`}>
+                          {category.name}
+                        </Link>
+                      </h4>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <div className="product-category-item wow fadeInUp delay-0-4s">
-                  <div className="image">
-                    <img
-                      src="assets/images/products/product30.png"
-                      alt="Product"
-                    />
-                  </div>
-                  <div className="content">
-                    <h4>
-                      <Link href="/product-details">Fresh Nuts</Link>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <div className="product-category-item wow fadeInUp delay-0-5s">
-                  <div className="image">
-                    <img
-                      src="assets/images/products/product31.png"
-                      alt="Product"
-                    />
-                  </div>
-                  <div className="content">
-                    <h4>
-                      <Link href="/product-details">Tomatoes</Link>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <div className="product-category-item wow fadeInUp delay-0-6s">
-                  <div className="image">
-                    <img
-                      src="assets/images/products/product32.png"
-                      alt="Product"
-                    />
-                  </div>
-                  <div className="content">
-                    <h4>
-                      <Link href="/product-details">Chicken Eggs</Link>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-lg-4 col-sm-6">
-                <div className="product-category-item wow fadeInUp delay-0-7s">
-                  <div className="image">
-                    <img
-                      src="assets/images/products/product33.png"
-                      alt="Product"
-                    />
-                  </div>
-                  <div className="content">
-                    <h4>
-                      <Link href="/product-details">Fresh Orange</Link>
-                    </h4>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
       {/* Product Category Area End */}
-      {/* Shop Area Start */}
-      <section className="shop-area-three rel z-1 py-50">
-        <div className="container-fluid">
-          <PopularProducts products={products} />
-        </div>
-      </section>
-      {/* Shop Area End */}
+
       {/* Special Offer Start */}
       <section className="special-offer-three">
         <div className="container-fluid">
@@ -288,7 +215,10 @@ const Index3 = () => {
                 <h2>Special Deal Of This Week</h2>
               </div>
               <p>
-              "Indulge in the goodness of nature! Enjoy a delightful 35% off on our exquisite selection of fresh and flavorful fruits. Elevate your well-being with the perfect blend of taste and health. Hurry, savor the savings while they last!"
+                "Indulge in the goodness of nature! Enjoy a delightful 35% off
+                on our exquisite selection of fresh and flavorful fruits.
+                Elevate your well-being with the perfect blend of taste and
+                health. Hurry, savor the savings while they last!"
               </p>
               <MunfimCountdown />
               <div className="count-down-btns mt-10">
@@ -313,12 +243,21 @@ const Index3 = () => {
         </div>
       </section>
       {/* Special Offer End */}
+
       {/* Shop Area Start */}
-      <section className="shop-area-four rel z-1 pt-80 pb-50">
+      <section className="shop-area-three rel z-1 py-50">
+        <div className="container">
+          <PopularProducts products={products} />
+        </div>
+      </section>
+      {/* Shop Area End */}
+
+      {/* Shop Area Start */}
+      {/* <section className="shop-area-four rel z-1 pt-80 pb-50">
         <div className="container-fluid">
           <TrendyProducts />
         </div>
-      </section>
+      </section> */}
       {/* Shop Area End */}
       {/* Client Logo Area Start */}
       <div className="client-logo-area-two text-center mb-80">

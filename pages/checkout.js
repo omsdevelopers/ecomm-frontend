@@ -29,18 +29,28 @@ const Checkout = () => {
     setCartData(localStorageData.cartData);
   }, []);
 
-  // useEffect(() => {
-  //   const script = document.createElement("script");
-  //   script.src = "https://checkout.razorpay.com/v1/checkout.js";
-  //   script.async = true;
-  //   document.head.appendChild(script);
+  if (typeof window !== "undefined") {
+    var id;
+    var session;
+    const user = JSON.parse(localStorage.getItem("user")) || {};
+    const storedSessionId = localStorage.getItem("cart_session") || null;
 
-  //   return () => {
-  //     document.head.removeChild(script);
-  //   };
-  // }, []);
+    if (!user.id) {
+      session = storedSessionId;
+    } else {
+      id = user.id;
+    }
+  }
+
+  const quantityString = localStorageDatas?.cartData
+    .map((item) => item.quantity)
+    .join(", ");
+
+  console.log("Quantity string:", quantityString);
 
   const [formData, setFormData] = useState({
+    user_id: id ? id : null,
+    session_id: session ? session : null,
     first_name: "",
     last_name: "",
     number: "",
@@ -53,6 +63,7 @@ const Checkout = () => {
     streetName: "",
     apartment: "",
     order_notes: "",
+    quantity: quantityString ? quantityString : "0",
     subtotal: localStorageDatas && localStorageDatas.totalPrice,
     product_id,
   });

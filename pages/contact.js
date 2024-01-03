@@ -1,6 +1,53 @@
+import { useState } from "react";
 import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layout/Layout";
+import { useToasts } from "react-toast-notifications";
+import { messageUS } from "../utils/api";
+
 const ContactUs = () => {
+  const { addToast } = useToasts();
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  // Update form values based on user input
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Form data submitted:", formData);
+
+    try {
+      const data = await messageUS(formData);
+
+      addToast("Message sent successfully", {
+        appearance: "success",
+        autoDismiss: true,
+      });
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+    } catch (e) {
+      addToast("Sending message failed!", {
+        appearance: "error",
+        autoDismiss: true,
+      });
+    }
+  };
+
   return (
     <Layout footer={3}>
       <PageBanner pageName={"Contact Us"} />{" "}
@@ -71,7 +118,7 @@ const ContactUs = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <form
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={handleSubmit}
                 id="contactForm"
                 className="contact-form rmb-65 wow fadeInLeft delay-0-2s"
                 name="contactForm"
@@ -90,8 +137,9 @@ const ContactUs = () => {
                         id="name"
                         name="name"
                         className="form-control"
-                        defaultValue=""
+                        value={formData.name}
                         placeholder="Full Name"
+                        onChange={handleInputChange}
                         required=""
                         data-error="Please enter your name"
                       />
@@ -105,8 +153,9 @@ const ContactUs = () => {
                         id="phone"
                         name="phone"
                         className="form-control"
-                        defaultValue=""
+                        value={formData.phone}
                         placeholder="Phone Number"
+                        onChange={handleInputChange}
                         required=""
                         data-error="Please enter your Phone Number"
                       />
@@ -120,10 +169,11 @@ const ContactUs = () => {
                         id="email"
                         name="email"
                         className="form-control"
-                        defaultValue=""
+                        value={formData.email}
                         placeholder="Email Address"
+                        onChange={handleInputChange}
                         required=""
-                        data-error="Please enter your Adderss"
+                        data-error="Please enter your Address"
                       />
                       <div className="help-block with-errors" />
                     </div>
@@ -135,10 +185,11 @@ const ContactUs = () => {
                         id="message"
                         className="form-control"
                         rows={4}
+                        value={formData.message}
                         placeholder="Write Message"
-                        required=""
+                        onChange={handleInputChange}
+                        required
                         data-error="Please enter your Message"
-                        defaultValue={""}
                       />
                       <div className="help-block with-errors" />
                     </div>

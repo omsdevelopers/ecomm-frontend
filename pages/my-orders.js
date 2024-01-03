@@ -31,8 +31,6 @@ const my_order = async () => {
 console.log("data", orders)
 
 useEffect(() => {
-  console.log("Error: ");
-
   my_order()
 }, []);
 
