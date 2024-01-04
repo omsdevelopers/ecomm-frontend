@@ -165,24 +165,17 @@ export const HomeSlider2 = () => {
   const { active, setActive } = munfirmSlider();
   return (
     <Fragment>
-      <button
-        className="slider-prev slick-arrow"
-        onClick={() => setActive(active == 1 ? 2 : 1)}
-      >
-        <i className="fas fa-chevron-left" />
-      </button>
+  
 
       <div
-        className={`slider-single-item style-two ${
-          active == 1 ? "slick-active" : ""
-        }`}
+        className={`slider-single-item style-two  slick-active`}
       >
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="slider-content">
                 <div className="sub-title mb-20">Welcome to Bharath AB</div>
-                <h1>Organic Foods &amp; Vegetables</h1>
+                <h1>Tech Gadget Hub</h1>
                 <div className="slider-btns mt-30">
                   <Link href="/shop-grid">
                     <a className="theme-btn style-two">
@@ -201,67 +194,21 @@ export const HomeSlider2 = () => {
               <div className="slider-images">
                 <img
                   className="image"
-                  src="assets/images/slider/slider-two1.png"
+                  src="assets/images/slider/silde1.png"
                   alt="Slider"
                 />
-                <img
+                {/* <img
                   className="offer"
                   src="assets/images/shapes/organic.png"
                   alt="Organic"
-                />
+                /> */}
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        className={`slider-single-item style-two ${
-          active == 2 ? "slick-active" : ""
-        }`}
-      >
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <div className="slider-content">
-                <div className="sub-title mb-20">Welcome to Bharath AB</div>
-                <h1>Organic Foods &amp; Vegetables</h1>
-                <div className="slider-btns mt-30">
-                  <Link href="/about">
-                    <a className="theme-btn style-two">
-                      Learn More <i className="fas fa-angle-double-right" />
-                    </a>
-                  </Link>
-                  <Link href="/shop-grid">
-                    <a className="theme-btn style-two">
-                      Shop Now <i className="fas fa-angle-double-right" />
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="slider-images">
-                <img
-                  className="image"
-                  src="assets/images/slider/slider-two3.png"
-                  alt="Slider"
-                />
-                <img
-                  className="offer"
-                  src="assets/images/shapes/organic.png"
-                  alt="Organic"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button
-        className="slider-next slick-arrow"
-        onClick={() => setActive(active == 2 ? 1 : 2)}
-      >
-        <i className="fas fa-chevron-right" />
-      </button>
+     
+     
     </Fragment>
   );
 };

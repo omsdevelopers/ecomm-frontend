@@ -47,12 +47,10 @@ const ShopLeftSidebar = () => {
                   </h4>
                   <ul>
                     <li>
-                      <Link href="#">Organic Fruits</Link>{" "}
-                      <span>(8)</span>
+                      <Link href="#">Organic Fruits</Link> <span>(8)</span>
                     </li>
                     <li>
-                      <Link href="#">Fresh Vegetables</Link>{" "}
-                      <span>(5)</span>
+                      <Link href="#">Fresh Vegetables</Link> <span>(5)</span>
                     </li>
                     <li>
                       <Link href="#">Crisp Bread &amp; Cake</Link>{" "}
@@ -62,12 +60,10 @@ const ShopLeftSidebar = () => {
                       <Link href="#">Sea Foods</Link> <span>(9)</span>
                     </li>
                     <li>
-                      <Link href="#">Chiken Eggs</Link>{" "}
-                      <span>(4)</span>
+                      <Link href="#">Chiken Eggs</Link> <span>(4)</span>
                     </li>
                     <li>
-                      <Link href="#">Milk &amp; Meat</Link>{" "}
-                      <span>(6)</span>
+                      <Link href="#">Milk &amp; Meat</Link> <span>(6)</span>
                     </li>
                   </ul>
                 </div>
@@ -78,32 +74,25 @@ const ShopLeftSidebar = () => {
                   </h4>
                   <ul>
                     <li>
-                      <Link href="#">$05 - $10</Link>{" "}
-                      <span>(159)</span>
+                      <Link href="#">$05 - $10</Link> <span>(159)</span>
                     </li>
                     <li>
-                      <Link href="#">$12 - $25</Link>{" "}
-                      <span>(240)</span>
+                      <Link href="#">$12 - $25</Link> <span>(240)</span>
                     </li>
                     <li>
-                      <Link href="#">$50 - $100</Link>{" "}
-                      <span>(183)</span>
+                      <Link href="#">$50 - $100</Link> <span>(183)</span>
                     </li>
                     <li>
-                      <Link href="#">$120 - $300</Link>{" "}
-                      <span>(324)</span>
+                      <Link href="#">$120 - $300</Link> <span>(324)</span>
                     </li>
                     <li>
-                      <Link href="#">$500 - $1000</Link>{" "}
-                      <span>(95)</span>
+                      <Link href="#">$500 - $1000</Link> <span>(95)</span>
                     </li>
                     <li>
-                      <Link href="#">$1050 - $1500</Link>{" "}
-                      <span>(289)</span>
+                      <Link href="#">$1050 - $1500</Link> <span>(289)</span>
                     </li>
                   </ul>
                 </div>
-              
               </div>{" "}
             </div>
             <div className="col-xl-9 col-lg-8 mt-55">
@@ -121,7 +110,15 @@ const ShopLeftSidebar = () => {
                         <span className="offer">{product.offer}</span>
                       )}
                       <div className="image">
-                        <img src={product.image} alt={product.name} />
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          style={{
+                            height: "185px",
+                            width: "100%",
+                            objectFit: "contain",
+                          }}
+                        />{" "}
                       </div>
                       <div className="content">
                         <div className="ratting">
@@ -130,7 +127,9 @@ const ShopLeftSidebar = () => {
                           ))}
                         </div>
                         <h5>
-                          <Link href={`/product-details/${product.id}`}>{product.name}</Link>
+                          <Link href={`/product-details/${product.id}`}>
+                            {product.name}
+                          </Link>
                         </h5>
                         {product.discountedPrice ? (
                           <span className="price">

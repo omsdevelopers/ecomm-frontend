@@ -18,7 +18,7 @@ const MobileMenu = () => {
         </div> */}
       </li>
       <li className="dropdown">
-        <a href="/shop-grid">shop</a>
+        <a href="/shop">shop</a>
       </li>
       <Contact />
     </ul>

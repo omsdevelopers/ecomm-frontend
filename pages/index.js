@@ -3,7 +3,7 @@ import Layout from "../src/layout/Layout";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import Slider from "react-slick";
-import { HomeSlider3 } from "../src/components/HomeSlider";
+import { HomeSlider2, HomeSlider3 } from "../src/components/HomeSlider";
 import { clientLogo } from "../src/sliderProps";
 import React, { useEffect, useState } from "react";
 import { fetchData, listCetegory } from "../utils/api";
@@ -49,10 +49,25 @@ const Index3 = () => {
   }, []);
 
   return (
-    <Layout header={1} footer={3}>
-      <section className="slider-section slider-three">
-        <div className="slider-three-active">
-          <HomeSlider3 />
+    <Layout header={2} footer={3}>
+       <section
+        className="slider-section slider-two"
+        style={{ background: "url(assets/images/slider/slider-two-bg.jpg)" }}
+      >
+        <div className="slider-two-active">
+          <HomeSlider2 />
+        </div>
+        <div className="slide-shapes">
+          <img
+            className="leaf-one"
+            src="assets/images/slider/leaf-3.png"
+            alt="Leaf"
+          />
+          <img
+            className="leaf-two"
+            src="assets/images/slider/leaf-2.png"
+            alt="Leaf"
+          />
         </div>
       </section>
       {/* Slider Section End */}
@@ -117,13 +132,13 @@ const Index3 = () => {
                 className="offer-banner-item style-two wow fadeInUp delay-0-2s"
                 style={{
                   backgroundImage:
-                    "url(assets/images/offers/offer-banner-bg4.jpg)",
+                    "url(assets/images/offers/off2.jpg)",
                 }}
               >
                 <div className="content mb-0 ml-auto">
                   <span className="sub-title">100% Fresh</span>
                   <h3>Vegetables</h3>
-                  <Link href="/shop-grid">
+                  <Link href="/shop">
                     <a className="theme-btn style-three">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -136,13 +151,13 @@ const Index3 = () => {
                 className="offer-banner-item style-two wow fadeInUp delay-0-4s"
                 style={{
                   backgroundImage:
-                    "url(assets/images/offers/offer-banner-bg5.jpg)",
+                    "url(assets/images/offers/off1.jpg)",
                 }}
               >
                 <div className="content mb-0">
                   <span className="sub-title">25% Off</span>
                   <h3>Fast Delivery</h3>
-                  <Link href="/shop-grid">
+                  <Link href="/shop">
                     <a className="theme-btn style-three">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -155,13 +170,13 @@ const Index3 = () => {
                 className="offer-banner-item style-two wow fadeInUp delay-0-4s"
                 style={{
                   backgroundImage:
-                    "url(assets/images/offers/offer-banner-bg6.jpg)",
+                    "url(assets/images/offers/off3.jpg)",
                 }}
               >
                 <div className="content mb-0">
                   <span className="sub-title">100% Fresh</span>
                   <h3>Organic Fruits</h3>
-                  <Link href="/shop-grid">
+                  <Link href="/shop">
                     <a className="theme-btn style-three">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -206,7 +221,7 @@ const Index3 = () => {
           <div
             className="special-offer-three-inner rel z-1 bgs-cover py-80"
             style={{
-              backgroundImage: "url(assets/images/offers/offer-bg.jpg)",
+              backgroundImage: "url(assets/images/offers/off4.jpg)",
             }}
           >
             <div className="special-offer-content text-center wow fadeInUp delay-0-2s">
