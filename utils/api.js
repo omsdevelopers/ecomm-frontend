@@ -5,12 +5,16 @@ const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
 
-export const fetchData = async (url) => {
+export const fetchData = async (url, requestBody) => {
   try {
-    const response = await api.get(url);
+    const response = await axios.get(url, {
+      params: {
+        price: requestBody.price,
+      },
+    });
     return response.data;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error('Error fetching data:', error);
     throw error; // You can handle errors as needed
   }
 };

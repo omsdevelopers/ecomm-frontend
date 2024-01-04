@@ -3,20 +3,49 @@ import PageBanner from "../src/components/PageBanner";
 import Pagination from "../src/components/Pagination";
 import Layout from "../src/layout/Layout";
 import { useEffect, useState } from "react";
-import { fetchData } from "../utils/api";
+import { fetchData, listCetegory } from "../utils/api";
 
 const ShopLeftSidebar = () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [priceFilter, setPriceFilter] = useState([]);
+  const [activeButton, setActiveButton] = useState(null);
+
+  const fetchCategory = async () => {
+    const data = await listCetegory();
+
+    setCategories(data);
+  };
+  const fetchProducts = async () => {
+    const apiUrl = `${baseUrl}/products`;
+
+    // If priceFilter is not empty, include it in the request body
+    const requestBody = priceFilter.length > 0 ? { price: priceFilter } : {};
+
+    try {
+      const data = await fetchData(apiUrl, requestBody);
+      setProducts(data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
 
   useEffect(() => {
-    const apiUrl = `${baseUrl}/products`;
-    // Fetch data when the component mounts
-    fetchData(apiUrl)
-      .then((data) => setProducts(data))
-      .catch((error) => console.error("Error setting products:", error));
-  }, []);
+    fetchCategory();
+    fetchProducts();
+  }, [priceFilter]);
+
+  const handlePriceFilter = (min, max) => {
+    setPriceFilter([min, max]);
+    setActiveButton(`${min}-${max}`);
+  };
+
+  const handleAllProducts = () => {
+    setPriceFilter([]);
+    setActiveButton(null);
+  };
 
   return (
     <Layout footer={3}>
@@ -27,44 +56,19 @@ const ShopLeftSidebar = () => {
           <div className="row">
             <div className="col-xl-3 col-lg-4 col-md-8">
               <div className="shop-sidebar mt-65">
-                <div className="widget widget-search wow fadeInUp delay-0-2s">
-                  <form onSubmit={(e) => e.preventDefault()} action="#">
-                    <input
-                      type="text"
-                      placeholder="Search keywords"
-                      required=""
-                    />
-                    <button
-                      type="submit"
-                      className="searchbutton fa fa-search"
-                    />
-                  </form>
-                </div>
                 <div className="widget widget-menu wow fadeInUp delay-0-4s">
                   <h4 className="widget-title">
                     <i className="flaticon-leaf-1" />
                     Category
                   </h4>
                   <ul>
-                    <li>
-                      <Link href="#">Organic Fruits</Link> <span>(8)</span>
-                    </li>
-                    <li>
-                      <Link href="#">Fresh Vegetables</Link> <span>(5)</span>
-                    </li>
-                    <li>
-                      <Link href="#">Crisp Bread &amp; Cake</Link>{" "}
-                      <span>(3)</span>
-                    </li>
-                    <li>
-                      <Link href="#">Sea Foods</Link> <span>(9)</span>
-                    </li>
-                    <li>
-                      <Link href="#">Chiken Eggs</Link> <span>(4)</span>
-                    </li>
-                    <li>
-                      <Link href="#">Milk &amp; Meat</Link> <span>(6)</span>
-                    </li>
+                    {categories.map((category) => (
+                      <li key={category.id}>
+                        <Link href={`/category/${category.id}`}>
+                          {category.name}
+                        </Link>{" "}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className="widget widget-menu wow fadeInUp delay-0-2s">
@@ -74,22 +78,108 @@ const ShopLeftSidebar = () => {
                   </h4>
                   <ul>
                     <li>
-                      <Link href="#">$05 - $10</Link> <span>(159)</span>
+                      <button
+                        onClick={handleAllProducts}
+                        style={{
+                          backgroundColor:
+                            activeButton === null ? "#your-active-color" : "",
+                          color:
+                            activeButton === null
+                              ? "green"
+                              : "",
+                        }}
+                      >
+                        {" "}
+                        All Products{" "}
+                      </button>
                     </li>
                     <li>
-                      <Link href="#">$12 - $25</Link> <span>(240)</span>
+                      <button
+                        onClick={() => handlePriceFilter(50, 100)}
+                        style={{
+                          backgroundColor:
+                            activeButton === "50-100"
+                              ? "#your-active-color"
+                              : "",
+                          color:
+                            activeButton === "50-100"
+                              ? "green"
+                              : "",
+                        }}
+                      >
+                        {" "}
+                        ₹50 - ₹100{" "}
+                      </button>
                     </li>
                     <li>
-                      <Link href="#">$50 - $100</Link> <span>(183)</span>
+                      <button
+                        onClick={() => handlePriceFilter(120, 300)}
+                        style={{
+                          backgroundColor:
+                            activeButton === "120-300"
+                              ? "#your-active-color"
+                              : "",
+                          color:
+                            activeButton === "120-300"
+                              ? "green"
+                              : "",
+                        }}
+                      >
+                        {" "}
+                        ₹120 - ₹300{" "}
+                      </button>
                     </li>
                     <li>
-                      <Link href="#">$120 - $300</Link> <span>(324)</span>
+                      <button
+                        onClick={() => handlePriceFilter(500, 1000)}
+                        style={{
+                          backgroundColor:
+                            activeButton === "500-1000"
+                              ? "#your-active-color"
+                              : "",
+                          color:
+                            activeButton === "500-1000"
+                              ? "green"
+                              : "",
+                        }}
+                      >
+                        {" "}
+                        ₹500 - ₹1000{" "}
+                      </button>
                     </li>
                     <li>
-                      <Link href="#">$500 - $1000</Link> <span>(95)</span>
+                      <button
+                        onClick={() => handlePriceFilter(1050, 1500)}
+                        style={{
+                          backgroundColor:
+                            activeButton === "1050-1500"
+                              ? "#your-active-color"
+                              : "",
+                          color:
+                            activeButton === "1050-1500"
+                              ? "green"
+                              : "",
+                        }}
+                      >
+                        {" "}
+                        ₹1050 - ₹1500{" "}
+                      </button>
                     </li>
                     <li>
-                      <Link href="#">$1050 - $1500</Link> <span>(289)</span>
+                      <button
+                        onClick={() => handlePriceFilter(1500)}
+                        style={{
+                          backgroundColor:
+                            activeButton === "1500" ? "#your-active-color" : "",
+                          color:
+                            activeButton === "1500"
+                              ? "green"
+                              : "",
+                        }}
+                      >
+                        {" "}
+                        ₹1500 - More{" "}
+                      </button>
                     </li>
                   </ul>
                 </div>
@@ -100,52 +190,59 @@ const ShopLeftSidebar = () => {
                 {/* ... (Dropdown for sorting) */}
               </div>
               <div className="row shop-left-sidebar-row">
-                {products.map((product) => (
-                  <div
-                    key={product.id}
-                    className="col-xl-4 col-lg-6 col-md-4 col-sm-6"
-                  >
-                    <div className="product-item wow fadeInUp delay-0-2s">
-                      {product.offer && (
-                        <span className="offer">{product.offer}</span>
-                      )}
-                      <div className="image">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          style={{
-                            height: "185px",
-                            width: "100%",
-                            objectFit: "contain",
-                          }}
-                        />{" "}
-                      </div>
-                      <div className="content">
-                        <div className="ratting">
-                          {Array.from({ length: 5 }).map((_, index) => (
-                            <i key={index} className="fas fa-star" />
-                          ))}
-                        </div>
-                        <h5>
-                          <Link href={`/product-details/${product.id}`}>
-                            {product.name}
-                          </Link>
-                        </h5>
-                        {product.discountedPrice ? (
-                          <span className="price">
-                            <del>{product.originalPrice}</del>
-                            <span>{product.discountedPrice}</span>
-                          </span>
-                        ) : (
-                          <span className="price">
-                            <span>{product.price}</span>
-                          </span>
+                {products.length > 0 ? (
+                  products.map((product) => (
+                    <div
+                      key={product.id}
+                      className="col-xl-4 col-lg-6 col-md-4 col-sm-6"
+                    >
+                      <div className="product-item wow fadeInUp delay-0-2s">
+                        {product.offer && (
+                          <span className="offer">{product.offer}</span>
                         )}
+                        <div className="image">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            style={{
+                              height: "185px",
+                              width: "100%",
+                              objectFit: "contain",
+                            }}
+                          />
+                        </div>
+                        <div className="content">
+                          <div className="ratting">
+                            {Array.from({ length: 5 }).map((_, index) => (
+                              <i key={index} className="fas fa-star" />
+                            ))}
+                          </div>
+                          <h5>
+                            <Link href={`/product-details/${product.id}`}>
+                              {product.name}
+                            </Link>
+                          </h5>
+                          {product.discountedPrice ? (
+                            <span className="price">
+                              <del>{product.originalPrice}</del>
+                              <span>{product.discountedPrice}</span>
+                            </span>
+                          ) : (
+                            <span className="price">
+                              <span>{product.price}</span>
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
+                  ))
+                ) : (
+                  <div className="col-12">
+                    <p>No products found</p>
                   </div>
-                ))}
+                )}
               </div>
+
               <ul className="pagination flex-wrap justify-content-center pt-10">
                 <Pagination
                   paginationCls={".shop-left-sidebar-row .col-xl-4"}
