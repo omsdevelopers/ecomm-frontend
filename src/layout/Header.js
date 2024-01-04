@@ -6,6 +6,8 @@ import MobileMenu from "./MobileMenu";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Dropdown } from "react-bootstrap";
+import { breadCrumbs } from "../../utils/api";
+import Skeleton from "react-loading-skeleton";
 
 const Header = ({ header }) => {
   switch (header) {
@@ -113,12 +115,20 @@ const DefaultHeader = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState();
 
+  const [logoImage, setLogoImage] = useState("");
+
+  const lgImage = async () => {
+    const data = await breadCrumbs();
+    setLogoImage(data.logo_image);
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
 
     setUser(user ? JSON.parse(user) : null);
     setIsLoggedIn(!!token);
+    lgImage();
   }, []);
 
   const handleLogout = () => {
@@ -186,12 +196,13 @@ const DefaultHeader = () => {
               <div className="logo">
                 <Link href="/">
                   <a>
-                    {/* <img
-                    src="assets/images/logos/logo.png"
-                    alt="Logo"
-                    title="Logo"
-                  /> */}
-                    <h3 style={{ marginBottom: "0px" }}>Bharath AB</h3>
+                    <img
+                      width={"90px"}
+                      src={logoImage}
+                      alt="Logo"
+                      title="Logo"
+                    />
+                    {/* <h3 style={{ marginBottom: "0px" }}>Bharath AB</h3> */}
                   </a>
                 </Link>
               </div>
@@ -248,6 +259,13 @@ const DefaultHeader = () => {
                 </a>
               </Link>
               {/* menu sidbar */}
+              <div className="menu-sidebar" onClick={() => sidebarToggle()}>
+                <button>
+                  <i className="far fa-ellipsis-h" />
+                  <i className="far fa-ellipsis-h" />
+                  <i className="far fa-ellipsis-h" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -261,6 +279,19 @@ const Header1 = () => {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
+  const [logoImage, setLogoImage] = useState("");
+
+  const lgImage = async () => {
+    try {
+      const data = await breadCrumbs();
+      setLogoImage(data.logo_image);
+    } catch (error) {
+      console.error("Error fetching logo image:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -268,6 +299,7 @@ const Header1 = () => {
 
     setUser(user ? JSON.parse(user) : null);
     setIsLoggedIn(!!token);
+    lgImage();
   }, []);
 
   const handleLogout = () => {
@@ -337,12 +369,17 @@ const Header1 = () => {
               <div className="logo">
                 <Link href="/">
                   <a>
-                    {/* <img
-                    src="/assets/images/logos/logo.png"
-                    alt="Logo"
-                    title="Logo"
-                  /> */}
-                    <h3 style={{ marginBottom: "0px" }}>Bharath AB</h3>
+                    {loading ? (
+                      <Skeleton />
+                    ) : (
+                      <img
+                        width={"90px"}
+                        src={logoImage}
+                        alt="Logo"
+                        title="Logo"
+                      />
+                    )}
+                    {/* <h3 style={{ marginBottom: "0px" }}>Bharath AB</h3> */}
                   </a>
                 </Link>
               </div>
@@ -420,6 +457,19 @@ const Header2 = () => {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
+  const [logoImage, setLogoImage] = useState("");
+
+  const lgImage = async () => {
+    try {
+      const data = await breadCrumbs();
+      setLogoImage(data.logo_image);
+    } catch (error) {
+      console.error("Error fetching logo image:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -427,6 +477,7 @@ const Header2 = () => {
 
     setUser(user ? JSON.parse(user) : null);
     setIsLoggedIn(!!token);
+    lgImage();
   }, []);
 
   const handleLogout = () => {
@@ -492,16 +543,25 @@ const Header2 = () => {
               <div className="logo">
                 <Link href="/">
                   <a>
-                    <img
-                      src="assets/images/logos/logo.png"
-                      alt="Logo"
-                      title="Logo"
-                    />
-                    <img
-                      src="assets/images/logos/logo-white.png"
-                      alt="Logo"
-                      title="Logo"
-                    />
+                    {loading ? (
+                      <p>Loading...</p>
+                    ) : (
+                      <>
+                        <img
+                          width={"90px"}
+                          src={logoImage}
+                          alt="Logo"
+                          title="Logo"
+                        />
+                        <img
+                          width={"90px"}
+                          src={logoImage}
+                          alt="Logo"
+                          title="Logo"
+                        />
+                      </>
+                    )}
+                    {/* <h3 style={{ marginBottom: "0px" }}>Bharath AB</h3> */}
                   </a>
                 </Link>
               </div>
@@ -578,6 +638,7 @@ const Header2 = () => {
     </header>
   );
 };
+
 const Header3 = () => (
   <header className="main-header header-three menu-absolute">
     <div className="header-top-wrap bgc-primary py-10">
@@ -645,7 +706,7 @@ const Header3 = () => (
             </form>
             <button className="cart">
               <i className="far fa-shopping-basket" />
-              {/* <span>5</span> */}
+              <span>5</span>
             </button>
             <button className="user">
               <i className="far fa-user-circle" />
