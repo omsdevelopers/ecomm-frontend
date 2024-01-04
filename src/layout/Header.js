@@ -210,7 +210,7 @@ const DefaultHeader = () => {
               <Link href="/cart">
                 <button className="cart">
                   <i className="far fa-shopping-basket" />
-                  <span>5</span>
+                  {/* <span>5</span> */}
                 </button>
               </Link>
               {isLoggedIn ? (
@@ -361,7 +361,7 @@ const Header1 = () => {
               <Link href="/cart">
                 <button className="cart">
                   <i className="far fa-shopping-basket" />
-                  <span>5</span>
+                  {/* <span>5</span> */}
                 </button>
               </Link>
               {isLoggedIn ? (
@@ -645,7 +645,7 @@ const Header3 = () => (
             </form>
             <button className="cart">
               <i className="far fa-shopping-basket" />
-              <span>5</span>
+              {/* <span>5</span> */}
             </button>
             <button className="user">
               <i className="far fa-user-circle" />
