@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import "../styles/globals.css";
 import { ToastProvider } from 'react-toast-notifications';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 
 import Head from "next/head";

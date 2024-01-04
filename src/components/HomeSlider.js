@@ -291,7 +291,7 @@ export const HomeSlider3 = () => {
                 "Organic food and vegetables are grown without synthetic pesticides or fertilizers, promoting environmental sustainability and offering consumers healthier, chemical-free alternatives for a nutritious lifestyle."
                 </p>
                 <div className="slider-btns mt-20">
-                  <Link href="/shop-grid">
+                  <Link href="/shop">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>

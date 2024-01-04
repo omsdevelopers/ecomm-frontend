@@ -136,3 +136,14 @@ export const messageUS = async (datas) => {
     throw error;
   }
 };
+
+export const breadCrumbs = async () => {
+  try {
+    const { data } = await api.get("/image");
+
+    return data.image;
+  } catch (e) {
+    throw e;
+  }
+};
+

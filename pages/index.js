@@ -123,7 +123,7 @@ const Index3 = () => {
                 <div className="content mb-0 ml-auto">
                   <span className="sub-title">100% Fresh</span>
                   <h3>Vegetables</h3>
-                  <Link href="/shop-grid">
+                  <Link href="/shop">
                     <a className="theme-btn style-three">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -142,7 +142,7 @@ const Index3 = () => {
                 <div className="content mb-0">
                   <span className="sub-title">25% Off</span>
                   <h3>Fast Delivery</h3>
-                  <Link href="/shop-grid">
+                  <Link href="/shop">
                     <a className="theme-btn style-three">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
@@ -161,7 +161,7 @@ const Index3 = () => {
                 <div className="content mb-0">
                   <span className="sub-title">100% Fresh</span>
                   <h3>Organic Fruits</h3>
-                  <Link href="/shop-grid">
+                  <Link href="/shop">
                     <a className="theme-btn style-three">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
