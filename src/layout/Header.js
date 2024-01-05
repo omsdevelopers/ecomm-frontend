@@ -68,7 +68,7 @@ const DaskTopMenu = () => (
   </ul>
 );
 
-const Nav = () => {
+const Nav = ({logo}) => {
   const [nav, setNav] = useState(false);
   return (
     <nav className="main-menu navbar-expand-lg mobile-nav">
@@ -77,12 +77,12 @@ const Nav = () => {
           <Link href="/">
             <a>
               <img
-                src="/assets/images/logos/logo.png"
+                src={logo}
                 alt="Logo"
                 title="Logo"
               />
               <img
-                src="/assets/images/logos/logo-white.png"
+                src={logo}
                 alt="Logo"
                 title="Logo"
               />
@@ -209,7 +209,7 @@ const DefaultHeader = () => {
             </div>
             <div className="nav-outer clearfix">
               {/* Main Menu */}
-              <Nav />
+              <Nav logo={logoImage}/>
               {/* Main Menu End*/}
             </div>
             {/* Menu Button */}
@@ -259,13 +259,7 @@ const DefaultHeader = () => {
                 </a>
               </Link>
               {/* menu sidbar */}
-              <div className="menu-sidebar" onClick={() => sidebarToggle()}>
-                <button>
-                  <i className="far fa-ellipsis-h" />
-                  <i className="far fa-ellipsis-h" />
-                  <i className="far fa-ellipsis-h" />
-                </button>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -386,7 +380,7 @@ const Header1 = () => {
             </div>
             <div className="nav-outer clearfix">
               {/* Main Menu */}
-              <Nav />
+              <Nav logo={logoImage}/>
               {/* Main Menu End*/}
             </div>
             {/* Menu Button */}
@@ -437,13 +431,7 @@ const Header1 = () => {
                 </a>
               </Link>
               {/* menu sidbar */}
-              <div className="menu-sidebar" onClick={() => sidebarToggle()}>
-                <button>
-                  <i className="far fa-ellipsis-h" />
-                  <i className="far fa-ellipsis-h" />
-                  <i className="far fa-ellipsis-h" />
-                </button>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -648,7 +636,7 @@ const Header3 = () => (
         <div className="header-inner d-flex align-items-center">
           <div className="nav-outer clearfix">
             {/* Main Menu */}
-            <Nav />
+            <Nav logo={logoImage}/>
             {/* Main Menu End*/}
           </div>
           {/* menu sidbar */}
