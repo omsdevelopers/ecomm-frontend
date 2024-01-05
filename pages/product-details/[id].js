@@ -27,7 +27,7 @@ const ProductDetails = () => {
     const apiUrl = `${baseUrl}/products`;
 
     // Fetch data when the component mounts
-    fetchData(apiUrl)
+    fetchData(apiUrl, [])
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error setting products:", error));
   }, []);

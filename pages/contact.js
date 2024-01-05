@@ -101,14 +101,14 @@ const ContactUs = () => {
         <div className="contact-shapes">
           <img
             className="leafs"
-            src="assets/images/shapes/contact-leafs.png"
+            src="assets/images/shapes/shapescontact1.png"
             alt="Leafs"
           />
-          <img
+          {/* <img
             className="pumpkin"
             src="assets/images/shapes/pumpkin.png"
             alt="pumpkin"
-          />
+          /> */}
         </div>
       </section>
       {/* Contact Info End */}
@@ -209,7 +209,7 @@ const ContactUs = () => {
             <div className="col-lg-6">
               <div className="contact-right-image wow fadeInRight delay-0-4s">
                 <img
-                  src="assets/images/contact/contact-right.png"
+                  src="assets/images/contact/contact1.png"
                   alt="Contact From"
                 />
                 <img
@@ -222,21 +222,13 @@ const ContactUs = () => {
           </div>
         </div>
         <div className="contact-shapes">
-          <img
-            className="leaf"
-            src="assets/images/shapes/leaf-1.png"
-            alt="Leaf"
-          />
+        
           <img
             className="shape"
             src="assets/images/shapes/contact-shape.png"
             alt="Shape"
           />
-          <img
-            className="two-leaf"
-            src="assets/images/shapes/two-lear.png"
-            alt="Leaf"
-          />
+        
         </div>
       </section>
     </Layout>

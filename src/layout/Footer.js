@@ -1,19 +1,38 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { breadCrumbs } from "../../utils/api";
 
 const Counter = dynamic(() => import("../components/Counter"), {
   ssr: false,
 });
 
 const Footer = ({ footer }) => {
+  const [logoImage, setLogoImage] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const lgImage = async () => {
+      try {
+        const data = await breadCrumbs();
+        setLogoImage(data.logo_image);
+      } catch (error) {
+        console.error("Error fetching logo image:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    lgImage();
+  }, []);
+
   switch (footer) {
     case 1:
-      return <DefaultFooter />;
+      return <DefaultFooter logo={logoImage} />;
     case 3:
-      return <Footer3 />;
-
+      return <DefaultFooter logo={logoImage} />;
     default:
-      return <DefaultFooter />;
+      return <DefaultFooter logo={logoImage} />;
   }
 };
 export default Footer;
@@ -34,7 +53,7 @@ const ScrollTopBtn = () => {
   );
 };
 
-const DefaultFooter = () => (
+const DefaultFooter = ({logo}) => (
   <footer className="main-footer bg-green text-white">
     <div className="container">
       <div className="footer-top-newsletter py-80 mb-75">
@@ -52,14 +71,27 @@ const DefaultFooter = () => (
         <div className="col-lg-4 col-md-6 order-md-2">
           <div className="footer-widget about-widget text-center">
             <div className="footer-logo mb-30">
-              <Link href="/">
-                <a>
-                <h3> Bharath AB</h3>
-                </a>
-              </Link>
+              <div className="logo">
+                <Link href="/">
+                  <a>
+            
+                      <img
+                        width={"90px"}
+                        src={logo}
+                        alt="Logo"
+                        title="Logo"
+                      />
+                    
+                    {/* <h3 style={{ marginBottom: "0px" }}>Bharath AB</h3> */}
+                  </a>
+                </Link>
+              </div>
             </div>
             <p>
-            Organic food and vegetables are cultivated without synthetic pesticides or fertilizers, emphasizing natural farming methods. These products are free from genetically modified organisms (GMOs) and promote sustainable agriculture. 
+              Organic food and vegetables are cultivated without synthetic
+              pesticides or fertilizers, emphasizing natural farming methods.
+              These products are free from genetically modified organisms (GMOs)
+              and promote sustainable agriculture.
             </p>
             <div className="social-style-two pt-10">
               <Link href="/contact">
@@ -148,7 +180,8 @@ const DefaultFooter = () => (
           <div className="footer-widget contact-widget">
             <h4 className="footer-title">Contact Us</h4>
             <p>
-            "Nutrient-rich organic produce for wholesome living and vibrant health.{" "}
+              "Nutrient-rich organic produce for wholesome living and vibrant
+              health.{" "}
             </p>
             <ul>
               <li>
@@ -168,8 +201,7 @@ const DefaultFooter = () => (
         </div>
       </div>
       <div className="copyright-area pt-25 pb-10">
-        <p>Copyright © 2022 Bharath AB
-. All Rights Reserved.</p>
+        <p>Copyright © 2022 Bharath AB . All Rights Reserved.</p>
         <ul className="footer-menu">
           <li>
             <Link href="/contact">Setting &amp; Privacy</Link>
@@ -237,20 +269,23 @@ const Footer3 = () => (
           <span>Happy Clients</span>
         </div>
       </div>
+
       <div className="row justify-content-between">
-        <div className="col-xl-5">
-          <div className="row justify-content-between">
-            <div className="col-sm-7">
+        <div className="col-xl-12">
+          <div className="row justify-content-around">
+            <div className="col-sm-4">
               <div className="footer-widget about-widget">
                 <div className="footer-logo mb-30">
                   <Link href="/">
                     <a>
-                   <h3> Bharath AB</h3>
+                      <h3> Bharath AB</h3>
                     </a>
                   </Link>
                 </div>
                 <p>
-                Organic food and vegetables are cultivated without synthetic pesticides or fertilizers,  reduces exposure to harmful chemicals, and contributes to a healthier lifestyle.
+                  Organic food and vegetables are cultivated without synthetic
+                  pesticides or fertilizers, reduces exposure to harmful
+                  chemicals, and contributes to a healthier lifestyle.
                 </p>
                 <div className="social-style-two pt-10">
                   <Link href="/contact">
@@ -313,54 +348,13 @@ const Footer3 = () => (
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="col-xl-7">
-          <div className="row justify-content-between">
-            <div className="col-lg-4 col-sm-6">
-              <div className="footer-widget news-widget">
-                <h4 className="footer-title">Recent News</h4>
-                <ul>
-                  <li>
-                    <div className="image">
-                      <img
-                        src="/assets/images/news/news-widget1.jpg"
-                        alt="News"
-                      />
-                    </div>
-                    <div className="content">
-                      <h6>
-                        <Link href="/blog-details">
-                          Universal Principles User Experience
-                        </Link>
-                      </h6>
-                      <span className="name">By Westfield</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="image">
-                      <img
-                        src="/assets/images/news/news-widget2.jpg"
-                        alt="News"
-                      />
-                    </div>
-                    <div className="content">
-                      <h6>
-                        <Link href="/blog-details">
-                          Roll Out New Featuc Without Hurting
-                        </Link>
-                      </h6>
-                      <span className="name">By Mendonca</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-4 col-sm-6">
+
+            <div className="col-sm-4">
               <div className="footer-widget contact-widget">
                 <h4 className="footer-title">Contact Us</h4>
                 <p>
-                Nutrient-rich organic produce for wholesome living and vibrant health.{" "}
+                  Nutrient-rich organic produce for wholesome living and vibrant
+                  health.{" "}
                 </p>
                 <ul>
                   <li>
@@ -378,80 +372,19 @@ const Footer3 = () => (
                 </ul>
               </div>
             </div>
-            <div className="col-lg-4 col-sm-6">
-              <div className="footer-widget gallery-widget">
-                <h4 className="footer-title">Gallery</h4>
-                <ul>
-                  <li>
-                    <a href="/assets/images/widgets/gallery1.jpg">
-                      <i className="fas fa-plus" />
-                    </a>
-                    <img
-                      src="/assets/images/widgets/gallery1.jpg"
-                      alt="Gallery"
-                    />
-                  </li>
-                  <li>
-                    <a href="/assets/images/widgets/gallery2.jpg">
-                      <i className="fas fa-plus" />
-                    </a>
-                    <img
-                      src="/assets/images/widgets/gallery2.jpg"
-                      alt="Gallery"
-                    />
-                  </li>
-                  <li>
-                    <a href="/assets/images/widgets/gallery3.jpg">
-                      <i className="fas fa-plus" />
-                    </a>
-                    <img
-                      src="/assets/images/widgets/gallery3.jpg"
-                      alt="Gallery"
-                    />
-                  </li>
-                  <li>
-                    <a href="assets/images/widgets/gallery4.jpg">
-                      <i className="fas fa-plus" />
-                    </a>
-                    <img
-                      src="/assets/images/widgets/gallery4.jpg"
-                      alt="Gallery"
-                    />
-                  </li>
-                  <li>
-                    <a href="/assets/images/widgets/gallery5.jpg">
-                      <i className="fas fa-plus" />
-                    </a>
-                    <img
-                      src="/assets/images/widgets/gallery5.jpg"
-                      alt="Gallery"
-                    />
-                  </li>
-                  <li>
-                    <a href="/assets/images/widgets/gallery6.jpg">
-                      <i className="fas fa-plus" />
-                    </a>
-                    <img
-                      src="/assets/images/widgets/gallery6.jpg"
-                      alt="Gallery"
-                    />
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
+
     <div className="copyright-area-wrap">
       <div className="container-fluid">
         <div className="copyright-area pt-25 pb-10">
-          <p>Copyright © 2022 Bharath AB
-. All Rights Reserved.</p>
+          <p>Copyright © 2022 Bharath AB . All Rights Reserved.</p>
           <ul className="footer-menu">
             <li>
               <Link href="/termsCondition">
-                <a>Terms  &amp;  condition</a>
+                <a>Terms &amp; condition</a>
               </Link>
             </li>
             <li>

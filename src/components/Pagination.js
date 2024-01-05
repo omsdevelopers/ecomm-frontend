@@ -1,5 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { getPagination, pagination } from "../utils";
+
+
 const Pagination = ({ paginationCls, defaultSort }) => {
   let sort = defaultSort ? defaultSort : 2;
   const [active, setActive] = useState(1);

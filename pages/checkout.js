@@ -501,7 +501,7 @@ const Checkout = () => {
                           <strong>Order Total</strong>
                         </td>
                         <td>
-                          <strong>${Number(totalPrice).toFixed(2)}</strong>
+                          <strong>₹{Number(totalPrice).toFixed(2)}</strong>
                         </td>
                       </tr>
                     </tbody>

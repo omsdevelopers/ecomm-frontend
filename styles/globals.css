@@ -1,12 +1,12 @@
 .navigation li.dropdown:hover > ul {
   display: block;
 }
-.header-three .mobile-nav .logo img:last-child,
+/* .header-three .mobile-nav .logo img:last-child,
 .header-three .mobile-nav .mobile-logo img:last-child,
 .main-header .mobile-nav .logo img:last-child,
 .main-header .mobile-nav .mobile-logo img:last-child {
   display: none;
-}
+} */
 .main-header.header-two .mobile-nav .logo img:last-child,
 .main-header.header-two .mobile-nav .mobile-logo img:last-child {
   display: inline-block;

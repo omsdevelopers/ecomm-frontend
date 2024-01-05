@@ -10,14 +10,14 @@ function MyApp({ Component, pageProps }) {
     <Fragment>
       <Head>
         <title>
-          Munfirm - Agriculture &amp; Organic Food React NextJS Template
+          Electronics
         </title>
         {/* Favicon Icon */}
-        <link
+        {/* <link
           rel="shortcut icon"
           href="assets/images/favicon.png"
           type="image/x-icon"
-        />
+        /> */}
         {/* Google Fonts */}
         <link
           href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap"
