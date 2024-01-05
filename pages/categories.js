@@ -31,28 +31,30 @@ const Index = () => {
       {/* Category Section Start */}
       <section className="category-section pt-130 rpt-100">
         <div className="container">
-          <div className="row align-items-end pb-35 ">
+          <div className="row align-items-end pb-35">
             <div className="col-lg-12 wow fadeInUp delay-0-2s">
               <div className="section-title mb-20 mt-20">
                 <span className="sub-title mb-20">
-                  Latest Gadgets and Electronics
+                  Fresh and Organic Vegetables
                 </span>
-                <h2>Quality Electronics &amp; Gadgets</h2>
+                <h2>Quality Vegetables from Local Farms</h2>
               </div>
             </div>
             <div className="col-lg-5 wow fadeInUp delay-0-4s">
               <div className="text mb-20">
                 <p>
-                  On the other hand, we denounce with righteous indignation and
-                  dislike those who are so beguiled and demoralized by the
-                  charms of pleasure of the moment, so blinded by desire, that
-                  they cannot foresee the pain and trouble that are bound to
-                  ensue. Equal blame belongs to those who fail in their duty
-                  through weakness of will.
+                  Explore our selection of fresh and organic vegetables sourced
+                  directly from local farms. We denounce with righteous
+                  indignation and dislike those who partake in vegetables
+                  tainted by harmful chemicals. Instead, choose our handpicked
+                  produce that is free from pesticides and genetically modified
+                  organisms. Enjoy the goodness of nature and support
+                  sustainable farming practices.
                 </p>
               </div>
             </div>
           </div>
+
           <h2>Our Categories</h2>
           <div className="category-wrap">
             {categories.map((category, index) => (
@@ -85,54 +87,62 @@ const Index = () => {
               <div className="about-content rpt-65 wow fadeInRight delay-0-2s">
                 <div className="section-title mb-35">
                   <span className="sub-title mb-20">About Company</span>
-                  <h2>Quality Electronics Provider</h2>
+                  <h2>Quality Vegetable Provider</h2>
                 </div>
-                <Tab.Container defaultActiveKey={"devices"}>
-                  <Nav className="nav jusctify-content-between">
+                <Tab.Container defaultActiveKey={"fresh-produce"}>
+                  <Nav className="nav justify-content-between">
                     <li>
                       <Nav.Link
-                        eventKey="devices"
+                        eventKey="fresh-produce"
                         className="nav-link"
                         data-toggle="tab"
-                        href="#devices"
+                        href="#fresh-produce"
                       >
-                        <i className="flaticon-devices" />
+                        <i className="flaticon-vegetables" />
                         <h4>
-                          Electronic
+                          Fresh
                           <br />
-                          Devices
+                          Produce
                         </h4>
                       </Nav.Link>
                     </li>
                     <li>
                       <Nav.Link
-                        eventKey="accessories"
+                        eventKey="organic-products"
                         className="nav-link"
                         data-toggle="tab"
-                        href="#accessories"
+                        href="#organic-products"
                       >
-                        <i className="flaticon-headphones" />
+                        <i className="flaticon-leaf" />
                         <h4>
-                          Accessories
+                          Organic
                           <br />
-                          &amp; Gadgets
+                          Products
                         </h4>
                       </Nav.Link>
                     </li>
                   </Nav>
                   <Tab.Content className="tab-content pt-25">
-                    <Tab.Pane className="tab-pane fade" eventKey="devices">
+                    <Tab.Pane
+                      className="tab-pane fade"
+                      eventKey="fresh-produce"
+                    >
                       <p>
-                        Providing the latest and innovative electronic devices
-                        to meet your technological needs. We aim to enhance your
-                        digital lifestyle with cutting-edge gadgets.
+                        Bringing you the freshest and highest quality vegetables
+                        sourced directly from local farms. Our commitment is to
+                        provide you with a wide variety of fresh produce to
+                        enhance your culinary experiences.
                       </p>
                     </Tab.Pane>
-                    <Tab.Pane className="tab-pane fade" eventKey="accessories">
+                    <Tab.Pane
+                      className="tab-pane fade"
+                      eventKey="organic-products"
+                    >
                       <p>
-                        Explore a wide range of accessories and gadgets to
-                        complement your electronic devices. From headphones to
-                        smart home devices, we've got you covered.
+                        Explore our range of organic products that promote
+                        healthy living. We prioritize sustainability and offer
+                        organic alternatives to conventional vegetables,
+                        ensuring a nourishing and eco-friendly choice.
                       </p>
                     </Tab.Pane>
                   </Tab.Content>

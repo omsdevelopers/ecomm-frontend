@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { listCetegory } from "../../utils/api";
 
 export const Home = () => (
   <Fragment>
@@ -87,6 +88,40 @@ export const Blog = () => (
     </li>
   </Fragment>
 );
+
+export const Categories = () => {
+  const [categories, setCategories] = useState([]);
+
+  const fetchCategory = async () => {
+    const data = await listCetegory();
+
+    setCategories(data);
+  };
+
+  useEffect(() => {
+    fetchCategory();
+  }, []);
+
+  return (
+    <Fragment>
+      {categories.map((category, index) => (
+        <li key={index}>
+          <Link href={`/category/${category.id}`}>
+            <div style={{cursor:"pointer"}}>
+              <img
+                src={category.image} // Assuming the category object has an 'image' property
+                alt={category.name}
+                style={{ width: "50px", height: "50px", marginRight: "25px" }}
+              />
+              {category.name}
+            </div>
+          </Link>
+        </li>
+      ))}
+    </Fragment>
+  );
+};
+
 export const Shop = () => (
   <Fragment>
     <li>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import { sidebarToggle } from "../utils";
-import { Blog, Contact, Home, PagesDasktop, Portfolio, Shop } from "./Menus";
+import { Blog, Categories, Contact, Home, PagesDasktop, Portfolio, Shop } from "./Menus";
 import MobileMenu from "./MobileMenu";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -64,6 +64,18 @@ const DaskTopMenu = () => (
         <span className="fas fa-chevron-down" />
       </div> */}
     </li>
+
+    <li className="dropdown">
+        <Link href="/categories">
+          <a>category</a>
+        </Link>
+        <ul>
+          <Categories />
+        </ul>
+        <div className="dropdown-btn">
+          <span className="fas fa-chevron-down" />
+        </div>
+      </li>
     <Contact />
   </ul>
 );
