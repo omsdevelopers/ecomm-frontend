@@ -54,7 +54,8 @@ const ShopLeftSidebar = () => {
       <section className="shop-page rel z-1 pt-65 rpt-35 pb-130 rpb-100">
         <div className="container">
           <div className="row">
-            <div className="col-xl-3 col-lg-4 col-md-8">
+            <div className="col-xl-3 col-lg-6 col-md-4 col-sm-6">
+            {/* col-xl-4 col-lg-6 col-md-4 col-sm-6 */}
               <div className="shop-sidebar mt-65">
                 <div className="widget widget-menu wow fadeInUp delay-0-4s">
                   <h4 className="widget-title">
@@ -83,10 +84,7 @@ const ShopLeftSidebar = () => {
                         style={{
                           backgroundColor:
                             activeButton === null ? "#your-active-color" : "",
-                          color:
-                            activeButton === null
-                              ? "green"
-                              : "",
+                          color: activeButton === null ? "green" : "",
                         }}
                       >
                         {" "}
@@ -101,10 +99,7 @@ const ShopLeftSidebar = () => {
                             activeButton === "50-100"
                               ? "#your-active-color"
                               : "",
-                          color:
-                            activeButton === "50-100"
-                              ? "green"
-                              : "",
+                          color: activeButton === "50-100" ? "green" : "",
                         }}
                       >
                         {" "}
@@ -119,10 +114,7 @@ const ShopLeftSidebar = () => {
                             activeButton === "120-300"
                               ? "#your-active-color"
                               : "",
-                          color:
-                            activeButton === "120-300"
-                              ? "green"
-                              : "",
+                          color: activeButton === "120-300" ? "green" : "",
                         }}
                       >
                         {" "}
@@ -137,10 +129,7 @@ const ShopLeftSidebar = () => {
                             activeButton === "500-1000"
                               ? "#your-active-color"
                               : "",
-                          color:
-                            activeButton === "500-1000"
-                              ? "green"
-                              : "",
+                          color: activeButton === "500-1000" ? "green" : "",
                         }}
                       >
                         {" "}
@@ -155,10 +144,7 @@ const ShopLeftSidebar = () => {
                             activeButton === "1050-1500"
                               ? "#your-active-color"
                               : "",
-                          color:
-                            activeButton === "1050-1500"
-                              ? "green"
-                              : "",
+                          color: activeButton === "1050-1500" ? "green" : "",
                         }}
                       >
                         {" "}
@@ -171,10 +157,7 @@ const ShopLeftSidebar = () => {
                         style={{
                           backgroundColor:
                             activeButton === "1500" ? "#your-active-color" : "",
-                          color:
-                            activeButton === "1500"
-                              ? "green"
-                              : "",
+                          color: activeButton === "1500" ? "green" : "",
                         }}
                       >
                         {" "}
@@ -194,9 +177,13 @@ const ShopLeftSidebar = () => {
                   products.map((product) => (
                     <div
                       key={product.id}
-                      className="col-xl-4 col-lg-6 col-md-4 col-sm-6"
+                      className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6"
+                      style={{ marginBottom: "25px" }}
                     >
-                      <div className="product-item wow fadeInUp delay-0-2s">
+                      <div
+                        className="product-item wow fadeInUp delay-0-2s"
+                        style={{ height: "100%" }}
+                      >
                         {product.offer && (
                           <span className="offer">{product.offer}</span>
                         )}
