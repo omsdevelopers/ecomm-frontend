@@ -128,14 +128,21 @@ const DefaultHeader = () => {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
 
   const [logoImage, setLogoImage] = useState("");
 
   const lgImage = async () => {
-    const data = await breadCrumbs();
-    setLogoImage(data.logo_image);
+    try {
+      const data = await breadCrumbs();
+      setLogoImage(data.logo_image);
+    } catch (error) {
+      console.error("Error fetching logo image:", error);
+    } finally {
+      setLoading(false);
+    }
   };
-
+  
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
@@ -210,12 +217,16 @@ const DefaultHeader = () => {
               <div className="logo">
                 <Link href="/">
                   <a>
-                    <img
-                      width={"90px"}
-                      src={logoImage}
-                      alt="Logo"
-                      title="Logo"
-                    />
+                  {loading ? (
+                      <Skeleton /> 
+                    ) : (
+                      <img
+                        width={"90px"}
+                        src={logoImage}
+                        alt="Logo"
+                        title="Logo"
+                      />
+                    )}
                     {/* <h3 style={{ marginBottom: "0px" }}>Bharath AB</h3> */}
                   </a>
                 </Link>
@@ -293,7 +304,6 @@ const Header1 = () => {
   const lgImage = async () => {
     try {
       const data = await breadCrumbs();
-      console.log("fff", data)
       setLogoImage(data.logo_image);
     } catch (error) {
       console.error("Error fetching logo image:", error);

@@ -50,14 +50,22 @@ const ShopGrid = () => {
                           <span className="offer">{product.offer}</span>
                         )}
                         <div className="image">
-                          <img src={product.image} alt={product.name} />
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            style={{
+                              height: "185px",
+                              width: "100%",
+                              objectFit: "contain",
+                            }}
+                          />{" "}
                         </div>
                         <div className="content">
-                          {/* <div className="ratting">
-                      {[...Array(product.rating)].map((_, index) => (
-                        <i key={index} className="fas fa-star" />
-                      ))}
-                    </div> */}
+                          <div className="ratting">
+                            {/* {[...Array(product.rating)].map((_, index) => (
+                              <i key={index} className="fas fa-star" />
+                            ))} */}
+                          </div>
                           <h5>
                             <Link href={`/product-details/${product.id}`}>
                               {product.name}

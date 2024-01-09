@@ -14,11 +14,27 @@ const redis = new Redis({
 
 export const fetchData = async (url, requestBody) => {
   try {
+    const cacheKey = "/products";
+    const cachedData = await redis.get(cacheKey);
+
+    if (cachedData) {
+      // If cachedData is already an object, return it directly
+      if (typeof cachedData === "object") {
+        return cachedData;
+      }
+
+      // Parse the JSON string if it's a string
+      return JSON.parse(cachedData);
+    }
+
     const response = await axios.get(url, {
       params: {
         price: requestBody.price,
       },
     });
+
+    await redis.set(cacheKey, JSON.stringify(response.data));
+
     return response.data;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -110,7 +126,22 @@ export const delCart = async (id) => {
 
 export const listCetegory = async () => {
   try {
+    const cacheKey = "/categories";
+    const cachedData = await redis.get(cacheKey);
+
+    if (cachedData) {
+      // If cachedData is already an object, return it directly
+      if (typeof cachedData === "object") {
+        return cachedData;
+      }
+
+      // Parse the JSON string if it's a string
+      return JSON.parse(cachedData);
+    }
+
     const { data } = await api.get("/records");
+    
+    await redis.set(cacheKey, JSON.stringify(data.data));
 
     return data.data;
   } catch (error) {
@@ -145,12 +176,12 @@ export const messageUS = async (datas) => {
 
 export const breadCrumbs = async () => {
   try {
-    const cacheKey = '/image';
+    const cacheKey = "/image";
     const cachedData = await redis.get(cacheKey);
 
     if (cachedData) {
       // If cachedData is already an object, return it directly
-      if (typeof cachedData === 'object') {
+      if (typeof cachedData === "object") {
         return cachedData;
       }
 
