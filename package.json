@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@upstash/redis": "^1.28.0",
     "axios": "^1.6.2",
+    "ioredis": "^5.3.2",
     "isotope-layout": "^3.0.6",
+    "net": "^1.0.2",
     "next": "12.2.5",
     "razorpay": "^2.9.2",
     "react": "18.2.0",
@@ -24,6 +27,9 @@
     "react-slick": "^0.29.0",
     "react-toast-notifications": "^2.5.1",
     "react-visibility-sensor": "^5.1.1",
+    "redis": "^4.6.12",
+    "swr": "^2.2.4",
+    "tls": "^0.0.1",
     "uuid": "^9.0.1",
     "wowjs": "^1.1.3"
   },

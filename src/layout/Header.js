@@ -22,6 +22,8 @@ const Header = ({ header }) => {
       return <DefaultHeader />;
   }
 };
+
+
 export default Header;
 
 const SearchBtn = () => {
@@ -291,6 +293,7 @@ const Header1 = () => {
   const lgImage = async () => {
     try {
       const data = await breadCrumbs();
+      console.log("fff", data)
       setLogoImage(data.logo_image);
     } catch (error) {
       console.error("Error fetching logo image:", error);
@@ -665,3 +668,5 @@ const Header3 = () => (
     {/*End Header Upper*/}
   </header>
 );
+
+

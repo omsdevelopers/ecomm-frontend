@@ -1,8 +1,15 @@
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import { Redis } from "@upstash/redis";
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+});
+
+const redis = new Redis({
+  url: "https://eu1-firm-pug-38426.upstash.io",
+  token:
+    "AZYaASQgZTE3NTI1M2QtYjQyOC00NTcxLTkzOWYtY2E4OTQ1ZTI5NTNhNTViMjI0NDE2ODA2NDBmMTgyOTVkNWU4MzI5MWYxNjE=",
 });
 
 export const fetchData = async (url, requestBody) => {
@@ -14,7 +21,7 @@ export const fetchData = async (url, requestBody) => {
     });
     return response.data;
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error("Error fetching data:", error);
     throw error; // You can handle errors as needed
   }
 };
@@ -103,14 +110,13 @@ export const delCart = async (id) => {
 
 export const listCetegory = async () => {
   try {
-    const { data } = await api.get('/records');
+    const { data } = await api.get("/records");
 
     return data.data;
   } catch (error) {
     throw error;
   }
 };
-
 
 export const cetegoryByproducts = async (id) => {
   try {
@@ -139,11 +145,26 @@ export const messageUS = async (datas) => {
 
 export const breadCrumbs = async () => {
   try {
+    const cacheKey = '/image';
+    const cachedData = await redis.get(cacheKey);
+
+    if (cachedData) {
+      // If cachedData is already an object, return it directly
+      if (typeof cachedData === 'object') {
+        return cachedData;
+      }
+
+      // Parse the JSON string if it's a string
+      return JSON.parse(cachedData);
+    }
+
     const { data } = await api.get("/image");
+
+    // Cache the response in Redis with an expiration time (e.g., 1 hour)
+    await redis.set(cacheKey, JSON.stringify(data.image));
 
     return data.image;
   } catch (e) {
     throw e;
   }
 };
-
