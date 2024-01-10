@@ -57,7 +57,7 @@ const DefaultFooter = ({ logo }) => (
   <footer className="main-footer bg-green text-white">
     <div className="container">
       <div className="footer-top-newsletter py-80 mb-75">
-        <div className="section-title">
+        {/* <div className="section-title">
           <h2>Newsletter Subscribe</h2>
         </div>
         <form onSubmit={(e) => e.preventDefault()} action="#">
@@ -65,7 +65,7 @@ const DefaultFooter = ({ logo }) => (
           <button className="theme-btn">
             subscribe now <i className="fas fa-angle-double-right" />
           </button>
-        </form>
+        </form> */}
       </div>
       <div className="row justify-content-center">
         <div className="col-lg-4 col-md-6 order-md-2">

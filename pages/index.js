@@ -225,14 +225,14 @@ const Index3 = () => {
               </p>
               <MunfimCountdown />
               <div className="count-down-btns mt-10">
-                <Link href="/shop-grid">
+                <Link href="/shop">
                   <a className="theme-btn">
                     Shop Now <i className="fas fa-angle-double-right" />
                   </a>
                 </Link>
-                <Link href="/about">
+                <Link href="/contact">
                   <a className="theme-btn style-three">
-                    use code <i className="fas fa-angle-double-right" />
+                    Contact <i className="fas fa-angle-double-right" />
                   </a>
                 </Link>
               </div>
@@ -263,7 +263,7 @@ const Index3 = () => {
       </section> */}
       {/* Shop Area End */}
       {/* Client Logo Area Start */}
-      <div className="client-logo-area-two text-center mb-80">
+      {/* <div className="client-logo-area-two text-center mb-80">
         <div className="container-fluid">
           <div className="bg-lighter-two overflow-hidden rel z-1 px-sm-4 px-2">
             <Slider {...clientLogo} className="client-logo-wrap py-60">
@@ -422,7 +422,7 @@ const Index3 = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </Layout>
   );
 };

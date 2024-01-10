@@ -196,7 +196,7 @@ const DefaultHeader = () => {
                   <ul>
                     <li>
                       <i className="far fa-phone" /> <b>Call :</b>{" "}
-                      <a href="callto:+012(345)67899">+012 (345) 678 99</a>
+                      <a href="callto:+012(345)67899">+999 999 99 99</a>
                     </li>
                     <li>
                       <div className="social-style-one">
