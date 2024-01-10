@@ -13,19 +13,21 @@ const ShopGrid = () => {
   const { id } = router.query;
   const [products, setProducts] = useState([]);
 
+  const fetchProduct = async () => {
+    try {
+      const response = await cetegoryByproducts(id);
+      setProducts(response);
+      // setTotalPrice(Number(response.data.price));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await cetegoryByproducts(id);
-        setProducts(response);
-        // setTotalPrice(Number(response.data.price));
-      } catch (error) {
-        console.log(error);
-      }
-    };
+   
 
     fetchProduct();
-  }, []);
+  }, [id]);
 
   return (
     <Layout>

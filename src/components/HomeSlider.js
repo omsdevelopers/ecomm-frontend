@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import munfirmSlider from "../munfirmSlider";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 export const HomeSlider1 = () => {
   const { active, setActive } = munfirmSlider();
   return (
@@ -288,7 +289,10 @@ export const HomeSlider3 = () => {
                 <div className="sub-title mb-20">Welcome to Bharath AB</div>
                 <h1>Organic Food &amp; Vegetables</h1>
                 <p>
-                "Organic food and vegetables are grown without synthetic pesticides or fertilizers, promoting environmental sustainability and offering consumers healthier, chemical-free alternatives for a nutritious lifestyle."
+                  "Organic food and vegetables are grown without synthetic
+                  pesticides or fertilizers, promoting environmental
+                  sustainability and offering consumers healthier, chemical-free
+                  alternatives for a nutritious lifestyle."
                 </p>
                 <div className="slider-btns mt-20">
                   <Link href="/shop">
@@ -306,10 +310,12 @@ export const HomeSlider3 = () => {
             </div>
             <div className="col-xl-7 col-lg-9">
               <div className="slider-images">
-                <img
+                <LazyLoadImage
                   className="image"
-                  src="assets/images/slider/slider-three-1.png"
+                  src="assets/images/slider/slider-three-1.webp"
                   alt="Slider"
+                  threshold={100}
+                  effect="blur"
                 />
               </div>
             </div>
@@ -325,10 +331,12 @@ export const HomeSlider3 = () => {
           <div className="row align-items-center">
             <div className="col-xl-7 col-lg-9">
               <div className="slider-images">
-                <img
+                 <LazyLoadImage
                   className="image"
-                  src="assets/images/slider/slider-three-1.png"
+                  src="assets/images/slider/slider-three-1.webp"
                   alt="Slider"
+                  threshold={100}
+                  effect="blur"
                 />
               </div>
             </div>
@@ -337,7 +345,10 @@ export const HomeSlider3 = () => {
                 <div className="sub-title mb-20">Welcome to Bharath AB</div>
                 <h1>Organic Food &amp; Vegetables</h1>
                 <p>
-                "Organic food and vegetables are grown without synthetic pesticides or fertilizers, promoting environmental sustainability and offering consumers healthier, chemical-free alternatives for a nutritious lifestyle."
+                  "Organic food and vegetables are grown without synthetic
+                  pesticides or fertilizers, promoting environmental
+                  sustainability and offering consumers healthier, chemical-free
+                  alternatives for a nutritious lifestyle."
                 </p>
                 <div className="slider-btns mt-20">
                   <Link href="/shop-grid">

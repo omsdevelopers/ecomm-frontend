@@ -5,8 +5,9 @@ import dynamic from "next/dynamic";
 import Slider from "react-slick";
 import { HomeSlider3 } from "../src/components/HomeSlider";
 import { clientLogo } from "../src/sliderProps";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { fetchData, listCetegory } from "../utils/api";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const TrendyProducts = dynamic(
   () => import("../src/components/istotope/TrendyProducts"),
@@ -47,6 +48,79 @@ const Index3 = () => {
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error setting products:", error));
   }, []);
+
+  //lazyload
+  const imagesData = [
+    {
+      imageUrl: "assets/images/offers/offer-banner-bg4.webp",
+      content: {
+        subTitle: "100% Fresh",
+        title: "Vegetables",
+        link: "/shop",
+        btnText: "Shop Now",
+      },
+    },
+    {
+      imageUrl: "assets/images/offers/offer-banner-bg5.webp",
+      content: {
+        subTitle: "25% Off",
+        title: "Fast Delivery",
+        link: "/shop",
+        btnText: "Shop Now",
+      },
+    },
+    {
+      imageUrl: "assets/images/offers/offer-banner-bg6.webp",
+      content: {
+        subTitle: "100% Fresh",
+        title: "Organic Fruits",
+        link: "/shop",
+        btnText: "Shop Now",
+      },
+    },
+    // Add more image data as needed
+  ];
+
+  // Define the observers array here
+  const observers = imagesData.map(() => ({
+    observer: null,
+    divRef: useRef(),
+  }));
+
+  useEffect(() => {
+    const newObservers = observers.map(({ divRef, observer }, index) => {
+      const { imageUrl } = imagesData[index];
+
+      const newObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              divRef.current.style.backgroundImage = `url(${imageUrl})`;
+              newObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+        }
+      );
+
+      newObserver.observe(divRef.current);
+
+      return { observer: newObserver, divRef };
+    });
+
+    // Cleanup the previous observers on component update
+    observers.forEach(({ observer }) => observer?.disconnect());
+
+    // Update the observers with the new ones
+    observers.splice(0, observers.length, ...newObservers);
+
+    // Cleanup the observers on component unmount
+    return () => {
+      observers.forEach(({ observer }) => observer.disconnect());
+    };
+  }, [imagesData, observers]);
 
   return (
     <Layout header={1} footer={3}>
@@ -112,63 +186,44 @@ const Index3 = () => {
       <section className="offer-banners-two pb-20">
         <div className="container-fluid">
           <div className="row justify-content-center">
-            <div className="col-xl-4 col-md-6">
-              <div
-                className="offer-banner-item style-two wow fadeInUp delay-0-2s"
-                style={{
-                  backgroundImage:
-                    "url(assets/images/offers/offer-banner-bg4.jpg)",
-                }}
-              >
-                <div className="content mb-0 ml-auto">
-                  <span className="sub-title">100% Fresh</span>
-                  <h3>Vegetables</h3>
-                  <Link href="/shop">
-                    <a className="theme-btn style-three">
-                      Shop Now <i className="fas fa-angle-double-right" />
-                    </a>
-                  </Link>
+            {imagesData.map((data, index) => (
+              <div key={index} className="col-xl-4 col-md-6">
+                <div
+                  ref={observers[index].divRef}
+                  className="offer-banner-item style-two wow fadeInUp delay-0-2s"
+                  style={{
+                    backgroundColor: "#e0e0e0",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  {index === 0 ? (
+                    <div className="content mb-0 ml-auto">
+                      <span className="sub-title">{data.content.subTitle}</span>
+                      <h3>{data.content.title}</h3>
+                      <Link href={data.content.link}>
+                        <a className="theme-btn style-three">
+                          {data.content.btnText}{" "}
+                          <i className="fas fa-angle-double-right" />
+                        </a>
+                      </Link>
+                    </div>
+                  ) : (
+                    <div className="content mb-0">
+                      <span className="sub-title">{data.content.subTitle}</span>
+                      <h3>{data.content.title}</h3>
+                      <Link href={data.content.link}>
+                        <a className="theme-btn style-three">
+                          {data.content.btnText}{" "}
+                          <i className="fas fa-angle-double-right" />
+                        </a>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div
-                className="offer-banner-item style-two wow fadeInUp delay-0-4s"
-                style={{
-                  backgroundImage:
-                    "url(assets/images/offers/offer-banner-bg5.jpg)",
-                }}
-              >
-                <div className="content mb-0">
-                  <span className="sub-title">25% Off</span>
-                  <h3>Fast Delivery</h3>
-                  <Link href="/shop">
-                    <a className="theme-btn style-three">
-                      Shop Now <i className="fas fa-angle-double-right" />
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6">
-              <div
-                className="offer-banner-item style-two wow fadeInUp delay-0-4s"
-                style={{
-                  backgroundImage:
-                    "url(assets/images/offers/offer-banner-bg6.jpg)",
-                }}
-              >
-                <div className="content mb-0">
-                  <span className="sub-title">100% Fresh</span>
-                  <h3>Organic Fruits</h3>
-                  <Link href="/shop">
-                    <a className="theme-btn style-three">
-                      Shop Now <i className="fas fa-angle-double-right" />
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -178,22 +233,32 @@ const Index3 = () => {
         <div className="container-fluid">
           <div className="product-category-inner">
             <div className="row justify-content-center">
-              {categories && categories?.map((category) => (
-                <div key={category.id} className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
-                  <div className="product-category-item wow fadeInUp">
-                    <div className="image">
-                      <img src={category.image} alt={category.name} />
-                    </div>
-                    <div className="content">
-                      <h4>
-                        <Link href={`/category/${category.id}`}>
-                          {category.name}
-                        </Link>
-                      </h4>
+              {categories &&
+                categories?.map((category) => (
+                  <div
+                    key={category.id}
+                    className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6"
+                  >
+                    <div className="product-category-item wow fadeInUp">
+                      <div className="image">
+                        <LazyLoadImage
+                          src={category.image}
+                          alt={category.name}
+                          effect="blur" // Optional: Add a blur effect while loading
+                          threshold={200} // Optional: Adjust the threshold for when the image starts loading
+                          style={{ width: "100%", height: "65%" }} // Set width and height as needed
+                        />{" "}
+                      </div>
+                      <div className="content">
+                        <h4>
+                          <Link href={`/category/${category.id}`}>
+                            {category.name}
+                          </Link>
+                        </h4>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </div>
@@ -206,7 +271,7 @@ const Index3 = () => {
           <div
             className="special-offer-three-inner rel z-1 bgs-cover py-80"
             style={{
-              backgroundImage: "url(assets/images/offers/offer-bg.jpg)",
+              backgroundImage: "url(assets/images/offers/offer-bg.webp)",
             }}
           >
             <div className="special-offer-content text-center wow fadeInUp delay-0-2s">

@@ -107,14 +107,16 @@ export const Categories = () => {
       {categories.map((category, index) => (
         <li key={index}>
           <Link href={`/category/${category.id}`}>
-            <div style={{cursor:"pointer"}}>
-              <img
-                src={category.image} // Assuming the category object has an 'image' property
-                alt={category.name}
-                style={{ width: "50px", height: "50px", marginRight: "25px" }}
-              />
-              {category.name}
-            </div>
+            <a >
+              <div style={{ cursor: "pointer" }}>
+                <img
+                  src={category.image} // Assuming the category object has an 'image' property
+                  alt={category.name}
+                  style={{ width: "50px", height: "50px", marginRight: "25px" }}
+                />
+                {category.name}
+              </div>
+            </a>
           </Link>
         </li>
       ))}
@@ -157,8 +159,7 @@ export const Contact = () => (
 export const Profile = () => (
   <Fragment>
     <li>
-      <Link href= "/profile">
-      </Link>
+      <Link href="/profile"></Link>
     </li>
   </Fragment>
-)
+);

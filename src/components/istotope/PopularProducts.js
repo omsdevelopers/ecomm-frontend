@@ -2,6 +2,7 @@ import Isotope from "isotope-layout";
 import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const PopularProducts = ({ products }) => {
   // Isotope
@@ -106,9 +107,11 @@ const PopularProducts = ({ products }) => {
                   <span className="offer">50% Off</span>
                   <div className="image">
                     {/* Assuming your image path is static/assets/images/products/ */}
-                    <img
+                    <LazyLoadImage
                       src={product.image}
                       alt={product.name}
+                      effect="blur" // Optional: Add a blur effect while loading
+                      threshold={200} // Optional: Adjust the threshold for when the image starts loading
                       style={{
                         height: "185px",
                         width: "100%",
