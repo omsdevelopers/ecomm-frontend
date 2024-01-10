@@ -153,11 +153,11 @@ const DefaultFooter = () => (
             <ul>
               <li>
                 <i className="fal fa-map-marker-alt" />
-                53 Main Street, 2nd Mountain 3rd Floor, New York
+                53 Main Street, 2nd Mountain 3rd Floor, Kanykumari
               </li>
               <li>
                 <i className="far fa-envelope" />
-                <a href="calto:+012(345)67899">+012 (345) 678 99</a>
+                <a href="calto:+012(345)67899">+999 999 99 99</a>
               </li>
               <li>
                 <i className="far fa-phone" />
@@ -365,7 +365,7 @@ const Footer3 = () => (
                 <ul>
                   <li>
                     <i className="fal fa-map-marker-alt" />
-                    53 Main Street, 2nd Mountain 3rd Floor, New York
+                    53 Main Street, 2nd Mountain 3rd Floor, Kanykumari
                   </li>
                   <li>
                     <i className="far fa-phone" />
@@ -373,7 +373,7 @@ const Footer3 = () => (
                   </li>
                   <li>
                     <i className="far fa-envelope" />
-                    <a href="calto:+012(345)67899">+012 (345) 678 99</a>
+                    <a href="calto:+012(345)67899">+999 999 99 99</a>
                   </li>
                 </ul>
               </div>
