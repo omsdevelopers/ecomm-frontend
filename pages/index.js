@@ -52,7 +52,7 @@ const Index3 = () => {
     <Layout header={2} footer={1}>
        <section
         className="slider-section slider-two"
-        style={{ background: "url(assets/images/slider/slider-two-bg.jpg)" }}
+        style={{ background: "url(assets/images/slider/sslider-bg-leaf.png)" }}
       >
         <div className="slider-two-active">
           <HomeSlider2 />
@@ -216,13 +216,11 @@ const Index3 = () => {
           >
             <div className="special-offer-content text-center wow fadeInUp delay-0-2s">
               <div className="section-title mb-30">
-                <span className="sub-title mb-20">35% Off for Fruits</span>
+                <span className="sub-title mb-20">35% Off for Electronics</span>
                 <h2>Special Deal Of This Week</h2>
               </div>
               <p>
                 "Indulge in the goodness of nature! Enjoy a delightful 35% off
-                on our exquisite selection of fresh and flavorful fruits.
-                Elevate your well-being with the perfect blend of taste and
                 health. Hurry, savor the savings while they last!"
               </p>
               <MunfimCountdown />

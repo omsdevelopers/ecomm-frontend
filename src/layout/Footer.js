@@ -53,7 +53,7 @@ const ScrollTopBtn = () => {
   );
 };
 
-const DefaultFooter = ({logo}) => (
+const DefaultFooter = ({ logo }) => (
   <footer className="main-footer bg-green text-white">
     <div className="container">
       <div className="footer-top-newsletter py-80 mb-75">
@@ -74,24 +74,17 @@ const DefaultFooter = ({logo}) => (
               <div className="logo">
                 <Link href="/">
                   <a>
-            
-                      <img
-                        width={"90px"}
-                        src={logo}
-                        alt="Logo"
-                        title="Logo"
-                      />
-                    
+                    <img width={"90px"} src={logo} alt="Logo" title="Logo" />
+
                     {/* <h3 style={{ marginBottom: "0px" }}>Bharath AB</h3> */}
                   </a>
                 </Link>
               </div>
             </div>
             <p>
-              Organic food and vegetables are cultivated without synthetic
-              pesticides or fertilizers, emphasizing natural farming methods.
-              These products are free from genetically modified organisms (GMOs)
-              and promote sustainable agriculture.
+              Electronics produced without the use of synthetic components or
+              chemicals diminish exposure to potentially harmful substances,
+              promoting a safer and more sustainable technological lifestyle.
             </p>
             <div className="social-style-two pt-10">
               <Link href="/contact">
@@ -120,7 +113,7 @@ const DefaultFooter = ({logo}) => (
         <div className="col-lg-4 col-md-6 order-md-1">
           <div className="footer-widget menu-widget ">
             <h4 className="footer-title">Quick Links</h4>
-            <ul>  
+            <ul>
               <li>
                 <Link href="/contact">Contact Us</Link>
               </li>
@@ -134,8 +127,8 @@ const DefaultFooter = ({logo}) => (
           <div className="footer-widget contact-widget">
             <h4 className="footer-title">Contact Us</h4>
             <p>
-              "Nutrient-rich organic produce for wholesome living and vibrant
-              health.{" "}
+              "Cutting-edge electronic devices for enriched living and robust
+              well-being.{" "}
             </p>
             <ul>
               <li>
@@ -217,9 +210,10 @@ const Footer3 = () => (
                   </Link>
                 </div>
                 <p>
-                  Organic food and vegetables are cultivated without synthetic
-                  pesticides or fertilizers, reduces exposure to harmful
-                  chemicals, and contributes to a healthier lifestyle.
+                  Electronics produced without the use of synthetic components
+                  or chemicals diminish exposure to potentially harmful
+                  substances, promoting a safer and more sustainable
+                  technological lifestyle.
                 </p>
                 <div className="social-style-two pt-10">
                   <Link href="/contact">
