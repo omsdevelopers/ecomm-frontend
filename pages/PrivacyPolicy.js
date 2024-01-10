@@ -8,14 +8,14 @@ const Privacy = () => {
             <PageBanner pageName={"Privacy Policy"} />
             <section>
                 <div className='container' style={{marginTop:'100px'}}>
-                    <h1>PRIVACY POLICY</h1>
-                    <h3>Last updated: November 27, 2023</h3>
-                    <h3>This Privacy Policy describes Our policies and procedures on the collection, use, and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</h3>
+                    <h3>PRIVACY POLICY</h3>
+                    <h4>Last updated: November 27, 2023</h4>
+                    <h4>This Privacy Policy describes Our policies and procedures on the collection, use, and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</h4>
 
                     <h2>INTERPRETATION AND DEFINITIONS</h2>
-                    <h5>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</h5>
+                    <h4>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</h4>
                     <h2>DEFINITIONS</h2>
-                    <h3>For the purposes of this Privacy Policy:</h3>
+                    <h4>For the purposes of this Privacy Policy:</h4>
                     <ul>
                         <li style={{ listStyle: 'block' }}><b>Account</b> means a unique account created for You to access our Service or parts of our Service.</li>
                         <li style={{ listStyle: 'block' }}><b>Affiliate</b> means an entity that controls, is controlled by, or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest, or other securities entitled to vote for the election of directors or other managing authority.</li>
@@ -32,9 +32,9 @@ const Privacy = () => {
 
                     </ul>
 
-                    <h3>COLLECTING AND USING YOUR PERSONAL DATA</h3>
+                    <h4>COLLECTING AND USING YOUR PERSONAL DATA</h4>
                     <h4>Types of Data Collected</h4>
-                    <h3>Personal Data</h3>
+                    <h4>Personal Data</h4>
                     <p>While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:</p>
                     <ul>
 
@@ -83,20 +83,20 @@ const Privacy = () => {
 <li style={{ listStyle: 'block' }}><b>With Affiliates: </b>We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners, or other companies that We control or that are under common control with Us.</li>
 <li style={{ listStyle: 'block' }}><b>With business partners:</b> We may share Your information with Our business partners to offer You certain products, services, or promotions.</li>
 <li style={{ listStyle: 'block' }}><b>With other users:</b> when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside. If You interact with other users or register through a Third-Party Social Media Service, Your contacts on the Third-Party Social Media Service may see Your name, profile, pictures, and description of Your activity. Similarly, other users will be able to view descriptions of Your activity, communicate with You and view Your profile.</li>
-<h3>RETENTION OF YOUR PERSONAL DATA</h3>
+<h4>RETENTION OF YOUR PERSONAL DATA</h4>
 <p>The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.
 
 The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.</p>
-               <h3>TRANSFER OF YOUR PERSONAL DATA</h3>
+               <h4>TRANSFER OF YOUR PERSONAL DATA</h4>
                <p>Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country, or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.</p>
                <p>Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</p>
                <p>The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy, and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place, including the security of Your data and other personal information.</p>
                
-               <h3>DELETE YOUR PERSONAL DATA</h3>
+               <h4>DELETE YOUR PERSONAL DATA</h4>
                <p>Our Service may give You the ability to delete certain information about You from within the Service.</p>
                <p>You may update, amend, or delete Your information at any time by signing in to Your Account, if you have one, and visiting the account settings section that allows you to manage Your personal information. You may also contact Us to request access to, correct, or delete any personal information that You have provided to Us.</p>
                <p>Please note, however, that We may need to retain certain information when we have a legal obligation or lawful basis to do so.</p>
-                <h3>CHANGES TO THIS PRIVACY POLICY</h3>
+                <h4>CHANGES TO THIS PRIVACY POLICY</h4>
                 <p>We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.</p>
                 <p>We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy.</p>
                 <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>

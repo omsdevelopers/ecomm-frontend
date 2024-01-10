@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import { sidebarToggle } from "../utils";
-import { Blog, Categories, Contact, Home, PagesDasktop, Portfolio, Shop } from "./Menus";
+import {
+  Blog,
+  Categories,
+  Contact,
+  Home,
+  PagesDasktop,
+  Portfolio,
+  Shop,
+} from "./Menus";
 import MobileMenu from "./MobileMenu";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -81,7 +89,7 @@ const DaskTopMenu = () => (
   </ul>
 );
 
-const Nav = ({logo}) => {
+const Nav = ({ logo, loading }) => {
   const [nav, setNav] = useState(false);
 
   return (
@@ -90,16 +98,21 @@ const Nav = ({logo}) => {
         <div className="mobile-logo my-15">
           <Link href="/">
             <a>
-              <img
-                src={logo}
-                alt="Logo"
-                title="Logo"
-              />
-              {/* <img
+              {loading ? (
+                <>
+                  {" "}
+                  <p>Loading...</p>
+                </>
+              ) : (
+                <>
+                  <img src={logo} alt="Logo" title="Logo" />
+                  {/* <img
                 src={logo}
                 alt="Logo"
                 title="Logo"
               /> */}
+                </>
+              )}
             </a>
           </Link>
         </div>
@@ -129,13 +142,19 @@ const DefaultHeader = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState();
 
+  const [loading, setLoading] = useState(true);
   const [logoImage, setLogoImage] = useState("");
 
   const lgImage = async () => {
-    const data = await breadCrumbs();
-    setLogoImage(data.logo_image);
+    try {
+      const data = await breadCrumbs();
+      setLogoImage(data.logo_image);
+    } catch (error) {
+      console.error("Error fetching logo image:", error);
+    } finally {
+      setLoading(false);
+    }
   };
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
@@ -210,12 +229,19 @@ const DefaultHeader = () => {
               <div className="logo">
                 <Link href="/">
                   <a>
-                    <img
-                      width={"90px"}
-                      src={logoImage}
-                      alt="Logo"
-                      title="Logo"
-                    />
+                    {loading ? (
+                      <>
+                        <p>Loading...</p>
+                      </>
+                    ) : (
+                      <img
+                        width={"90px"}
+                        src={logoImage}
+                        alt="Logo"
+                        title="Logo"
+                      />
+                    )}
+
                     {/* <h3 style={{ marginBottom: "0px" }}>Bharath AB</h3> */}
                   </a>
                 </Link>
@@ -223,7 +249,7 @@ const DefaultHeader = () => {
             </div>
             <div className="nav-outer clearfix">
               {/* Main Menu */}
-              <Nav logo={logoImage}/>
+              <Nav logo={logoImage} loading={loading}/>
               {/* Main Menu End*/}
             </div>
             {/* Menu Button */}
@@ -273,7 +299,6 @@ const DefaultHeader = () => {
                 </a>
               </Link>
               {/* menu sidbar */}
-              
             </div>
           </div>
         </div>
@@ -394,7 +419,7 @@ const Header1 = () => {
             </div>
             <div className="nav-outer clearfix">
               {/* Main Menu */}
-              <Nav logo={logoImage}/>
+              <Nav logo={logoImage} />
               {/* Main Menu End*/}
             </div>
             {/* Menu Button */}
@@ -511,7 +536,7 @@ const Header2 = () => {
                   <ul>
                     <li>
                       <i className="far fa-phone" /> <b>Call :</b>{" "}
-                      <a href="callto:+012(345)67899">+012 (345) 678 99</a>
+                      <a href="callto:+012(345)67899">+999 999 99 99</a>
                     </li>
                     <li>
                       <div className="social-style-one">
@@ -569,7 +594,7 @@ const Header2 = () => {
             </div>
             <div className="nav-outer clearfix">
               {/* Main Menu */}
-              <Nav logo={logoImage}/>
+              <Nav logo={logoImage} loading={loading} />
               {/* Main Menu End*/}
             </div>
             {/* Menu Button */}

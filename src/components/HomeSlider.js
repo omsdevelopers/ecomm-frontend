@@ -177,16 +177,16 @@ export const HomeSlider2 = () => {
                 <div className="sub-title mb-20">Welcome to Bharath AB</div>
                 <h1>Tech Gadget Hub</h1>
                 <div className="slider-btns mt-30">
-                  <Link href="/shop-grid">
+                  <Link href="/shop">
                     <a className="theme-btn style-two">
                       Shop Now <i className="fas fa-angle-double-right" />
                     </a>
                   </Link>
-                  <Link href="/about">
+                  {/* <Link href="/about">
                     <a className="theme-btn style-two">
                       Learn More <i className="fas fa-angle-double-right" />
                     </a>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>

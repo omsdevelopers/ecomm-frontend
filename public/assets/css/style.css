@@ -161,7 +161,7 @@ img {
 }
 
 mark {
-  color: #76a713;
+  color: #21297C;
   background: transparent;
   text-decoration: underline;
 }
@@ -437,7 +437,7 @@ a.theme-btn {
   justify-content: center;
   text-transform: capitalize;
   font-family: "Livvic", sans-serif;
-  background: #ff7800;
+  background: #21297C;
 }
 
 .theme-btn i,
@@ -451,7 +451,7 @@ a.theme-btn i {
 
 .theme-btn:hover,
 a.theme-btn:hover {
-  background: #76a713;
+  background: #0716e4;
 }
 
 .theme-btn:hover i,
@@ -462,12 +462,12 @@ a.theme-btn:hover i {
 
 .theme-btn.style-two,
 a.theme-btn.style-two {
-  background: #76a713;
+  background: #21297C;
 }
 
 .theme-btn.style-two:hover,
 a.theme-btn.style-two:hover {
-  background: #ff7800;
+  background: #0716e4;
 }
 
 .theme-btn.style-three,
@@ -517,7 +517,7 @@ a.theme-btn.btn-white {
 }
 
 .read-more:hover {
-  color: #76a713;
+  color: #21297C;
 }
 
 .read-more:hover i {
@@ -610,7 +610,7 @@ a.theme-btn.btn-white {
 }
 
 .social-style-two a:hover {
-  background: #76a713;
+  background: #21297C;
 }
 
 .social-style-two a:not(:first-child) {
@@ -705,7 +705,7 @@ a.theme-btn.btn-white {
   transition: 0.5s;
   background: white;
   border-radius: 5px;
-  color: #76a713;
+  color: #21297C;
   -webkit-box-shadow: 10px 0 60px rgba(109, 109, 109, 0.2);
   box-shadow: 10px 0 60px rgba(109, 109, 109, 0.2);
 }
@@ -713,7 +713,7 @@ a.theme-btn.btn-white {
 .slick-arrow:focus,
 .slick-arrow:hover {
   color: white;
-  background: #76a713;
+  background: #21297C;
   -webkit-box-shadow: 10px 0 60px rgba(118, 167, 19, 0.3);
   box-shadow: 10px 0 60px rgba(118, 167, 19, 0.3);
 }
@@ -824,7 +824,7 @@ a.theme-btn.btn-white {
   cursor: pointer;
   line-height: 50px;
   border-radius: 5px;
-  background: #ff7800;
+  background: #21297c;
   -webkit-animation: pulse 2s infinite;
   animation: pulse 2s infinite;
 }
@@ -924,11 +924,11 @@ a.theme-btn.btn-white {
 
 /* Color + Background */
 .bg-green {
-  background-color: #227200;
+  background-color: #131745;
 }
 
 .bg-light-green {
-  background-color: #76a713;
+  background-color: #21297C;
 }
 
 .bg-lighter {
@@ -936,7 +936,7 @@ a.theme-btn.btn-white {
 }
 
 .color-secondary {
-  color: #76a713;
+  color: #21297C;
 }
 
 .bgc-primary {
@@ -4371,7 +4371,7 @@ blockquote,
   position: absolute;
   width: 20px;
   height: 20px;
-  background: #76a713;
+  background: #21297C;
   line-height: 20px;
   border-radius: 50%;
   text-align: center;
@@ -5022,7 +5022,7 @@ blockquote,
 .slider-section .slick-arrow:focus,
 .slider-section .slick-arrow:hover {
   color: white;
-  background: #76a713;
+  background: #21297C;
 }
 
 .slider-section .slick-arrow.slider-prev {
@@ -5527,7 +5527,7 @@ blockquote,
   max-width: max-content;
   margin-left: auto;
   margin-right: auto;
-  background: #76a713;
+  background: #21297C;
 }
 
 @media only screen and (max-width: 575px) {
@@ -5858,7 +5858,7 @@ blockquote,
   flex: none;
   font-size: 65px;
   margin-right: 22px;
-  color: #76a713;
+  color: #21297C;
 }
 
 @media only screen and (max-width: 575px) {
@@ -5878,7 +5878,7 @@ blockquote,
 }
 
 .about-content .nav .nav-link.active {
-  border-color: #76a713;
+  border-color: #21297C;
 }
 
 .about-content .author-wrap {
@@ -5918,7 +5918,7 @@ blockquote,
 
 .about-content .author-wrap .title span {
   font-weight: 600;
-  color: #76a713;
+  color: #21297C;
 }
 
 /* About Home Two */
@@ -5966,7 +5966,7 @@ blockquote,
 .about-feature-item .icon {
   font-size: 55px;
   margin-bottom: 22px;
-  color: #76a713;
+  color: #21297C;
 }
 
 .about-feature-item .number {
@@ -6124,7 +6124,7 @@ blockquote,
   -o-transition: 0.5s;
   transition: 0.5s;
   margin-right: 22px;
-  color: #76a713;
+  color: #21297C;
 }
 
 .about-feature-two h4 {
@@ -6136,8 +6136,8 @@ blockquote,
 
 .about-feature-two:hover {
   border-radius: 10px;
-  background: #76a713;
-  border-color: #76a713;
+  background: #21297C;
+  border-color: #21297C;
 }
 
 .about-feature-two:hover h4,
@@ -6390,7 +6390,7 @@ blockquote,
 }
 
 .offer-banner-item.color-two .sub-title {
-  color: #76a713;
+  color: #21297C;
 }
 
 .offer-banner-item.color-three {
@@ -6542,7 +6542,7 @@ blockquote,
 }
 
 .product-item .price span {
-  color: #76a713;
+  color: #21297C;
 }
 
 .product-shapes img {
@@ -6666,14 +6666,14 @@ blockquote,
   border-radius: 5px;
   margin-right: 15px;
   text-transform: uppercase;
-  background: #76a713;
+  background: #21297C;
 }
 
 .product-details-content .price {
   font-weight: 600;
   font-size: 24px;
   display: inline-block;
-  color: #76a713;
+  color: #21297C;
   font-family: "Livvic", sans-serif;
 }
 
@@ -6754,8 +6754,8 @@ blockquote,
 
 .product-information-tab li a.nav-link:hover,
 .product-information-tab li a.nav-link.active {
-  color: #76a713;
-  border-color: #76a713;
+  color: #21297C;
+  border-color: #21297C;
 }
 
 .comment-body {
@@ -7225,7 +7225,7 @@ blockquote,
   display: block;
   font-size: 45px;
   margin-bottom: 15px;
-  color: #76a713;
+  color: #21297C;
 }
 
 @media only screen and (max-width: 375px) {
@@ -7409,7 +7409,7 @@ blockquote,
   line-height: 55px;
   text-align: center;
   border-radius: 5px;
-  background: #76a713;
+  background: #21297C;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -7585,8 +7585,8 @@ blockquote,
 }
 
 .portfolio-filter li.current {
-  color: #76a713;
-  border-color: #76a713;
+  color: #21297C;
+  border-color: #21297C;
 }
 
 .portfolio-filter:before {
@@ -7596,7 +7596,7 @@ blockquote,
   left: 0;
   bottom: 0;
   position: absolute;
-  background: #76a713;
+  background: #21297C;
 }
 
 /* Portfolio Details */
@@ -7747,11 +7747,11 @@ blockquote,
 }
 
 .feedback-content-area .slick-dots li {
-  background: #76a713;
+  background: #21297C;
 }
 
 .feedback-content-area .slick-dots li:before {
-  border-color: #76a713;
+  border-color: #21297C;
 }
 
 .feedback-active .slick-list {
@@ -7769,10 +7769,10 @@ blockquote,
   -o-transition: background-size .4s ease-in-out;
   transition: background-size .4s ease-in-out;
   background-color: rgba(118, 167, 19, 0.15);
-  background-image: -webkit-gradient(linear, left top, right top, from(#76a713), to(#76a713));
-  background-image: -webkit-linear-gradient(left, #76a713, #76a713);
-  background-image: -o-linear-gradient(left, #76a713, #76a713);
-  background-image: linear-gradient(to right, #76a713, #76a713);
+  background-image: -webkit-gradient(linear, left top, right top, from(#21297C), to(#21297C));
+  background-image: -webkit-linear-gradient(left, #21297C, #21297C);
+  background-image: -o-linear-gradient(left, #21297C, #21297C);
+  background-image: linear-gradient(to right, #21297C, #21297C);
 }
 
 .feedback-item p {
@@ -7800,7 +7800,7 @@ blockquote,
   font-size: 14px;
   font-weight: 900;
   display: inline-block;
-  color: #76a713;
+  color: #21297C;
   font-family: "Font Awesome 5 Pro";
 }
 
@@ -7909,11 +7909,11 @@ blockquote,
 }
 
 .feedback-two-active .slick-dots li {
-  background: #76a713;
+  background: #21297C;
 }
 
 .feedback-two-active .slick-dots li:before {
-  border-color: #76a713;
+  border-color: #21297C;
 }
 
 .feedback-item.style-two {
@@ -8017,7 +8017,7 @@ blockquote,
 .feedback-item.style-two .feedback-author .icon {
   font-size: 50px;
   margin-right: 22px;
-  color: #76a713;
+  color: #21297C;
 }
 
 .feedback-item.style-two .feedback-author .ratting {
@@ -8384,7 +8384,7 @@ blockquote:after {
 }
 
 .tag-share .social-style-one a:hover {
-  color: #76a713;
+  color: #21297C;
 }
 
 .next-prev-post {
@@ -8467,7 +8467,7 @@ blockquote:after {
 }
 
 .next-prev-post .show-all:not(:hover) {
-  color: #76a713;
+  color: #21297C;
 }
 
 /* News Slider */
@@ -8483,11 +8483,11 @@ blockquote:after {
 }
 
 .news-slider .slick-dots li {
-  background: #76a713;
+  background: #21297C;
 }
 
 .news-slider .slick-dots li:before {
-  border-color: #76a713;
+  border-color: #21297C;
 }
 
 /*******************************************************/
@@ -8794,7 +8794,7 @@ blockquote:after {
   font-weight: 500;
   padding-top: 10px;
   padding-bottom: 7px;
-  color: #76a713;
+  color: #21297C;
 }
 
 .service-details-content blockquote:after,
@@ -8859,7 +8859,7 @@ blockquote:after {
   display: -ms-flexbox;
   display: flex;
   padding: 12px 35px;
-  color: #76a713;
+  color: #21297C;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -8868,7 +8868,7 @@ blockquote:after {
 
 .feature-item:hover .read-more {
   color: white;
-  background: #76a713;
+  background: #21297C;
 }
 
 .feature-item.color-two {
@@ -9256,7 +9256,7 @@ blockquote:after {
   font-size: 55px;
   font-weight: 400;
   position: absolute;
-  color: #76a713;
+  color: #21297C;
   font-family: "Shadows Into Light", cursive;
   -webkit-transform: translate(-50%);
   -ms-transform: translate(-50%);
@@ -9353,7 +9353,7 @@ blockquote:after {
   line-height: 1;
   font-size: 35px;
   margin-right: 15px;
-  color: #76a713;
+  color: #21297C;
 }
 
 .widget-search {
@@ -9502,7 +9502,7 @@ blockquote:after {
 
 .widget-products ul li .content .price {
   font-weight: 600;
-  color: #76a713;
+  color: #21297C;
 }
 
 .widget-products ul li .content .price:before {
@@ -9534,7 +9534,7 @@ blockquote:after {
 .widget-about .sub-title {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #76a713;
+  color: #21297C;
 }
 
 .widget-about .social-style-one a {
@@ -9542,7 +9542,7 @@ blockquote:after {
 }
 
 .widget-about .social-style-one a:hover {
-  color: #76a713;
+  color: #21297C;
 }
 
 .widget-about .bg {
@@ -9574,8 +9574,8 @@ blockquote:after {
 
 .tag-coulds a:hover {
   color: white;
-  background: #76a713;
-  border-color: #76a713;
+  background: #21297C;
+  border-color: #21297C;
 }
 
 /* Service Widget */
@@ -9638,7 +9638,7 @@ blockquote:after {
   z-index: 1;
   position: relative;
   padding-bottom: 150px;
-  background: #76a713;
+  background: #21297C;
 }
 
 @media only screen and (max-width: 375px) {
@@ -9962,7 +9962,7 @@ blockquote:after {
 
 .checkout-faqs .alert h6 a {
   padding: 0;
-  color: #76a713;
+  color: #21297C;
   background: transparent;
 }
 
@@ -10055,7 +10055,7 @@ blockquote:after {
 
 .payment-method ul .custom-control-label i {
   margin-left: 10px;
-  color: #76a713;
+  color: #21297C;
 }
 
 .payment-method ul .custom-control-label:before {

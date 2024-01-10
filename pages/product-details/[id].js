@@ -100,9 +100,6 @@ const ProductDetails = () => {
     }
   };
 
-  if (!product) {
-    return <p>Loading...</p>;
-  }
 
   const imageurl = process.env.NEXT_API_HOST_URL;
 
@@ -114,8 +111,8 @@ const ProductDetails = () => {
           <div className="row align-items-center justify-content-between">
             <div className="col-lg-6">
               {/* <div className="product-preview-images rmb-55 wow fadeInLeft delay-0-2s"> */}
-              <a href={product.image}>
-                <img src={product.image} width={"600"} alt="Preview" />
+              <a href={product?.image}>
+                <img src={product?.image} width={"600"} alt="Preview" />
               </a>
               {/* </div> */}
             </div>
@@ -132,9 +129,9 @@ const ProductDetails = () => {
                   </div>
                 </div>
                 <div className="section-title mb-20">
-                  <h2>{product.name}</h2>
+                  <h2>{product?.name}</h2>
                 </div>
-                <p>{product.description}</p>
+                <p>{product?.description}</p>
                 <span className="price mb-20">{totalPrice}</span>
                 <hr />
                 <form

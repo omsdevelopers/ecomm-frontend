@@ -65,7 +65,7 @@ const ContactUs = () => {
                 </div>
                 <div className="content">
                   <h4>Location</h4>
-                  <span>57 Main Street, 2nd Block 3rd Floor, New York</span>
+                  <span>57 Main Street, 2nd Block 3rd Floor, Kanyakumari</span>
                 </div>
               </div>
             </div>
@@ -90,9 +90,9 @@ const ContactUs = () => {
                 </div>
                 <div className="content">
                   <h4>Phone Us</h4>
-                  <a href="callto:+000(111)345678">+000 (111) 345 678</a>
+                  <a href="callto:+000(111)345678">+999 999 99 99</a>
                   <br />
-                  <a href="callto:+012(345)67899">+012 (345) 678 99</a>
+                  <a href="callto:+012(345)67899">+999 999 99 99</a>
                 </div>
               </div>
             </div>

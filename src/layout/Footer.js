@@ -118,60 +118,14 @@ const DefaultFooter = ({logo}) => (
           </div>
         </div>
         <div className="col-lg-4 col-md-6 order-md-1">
-          <div className="footer-widget menu-widget two-column">
+          <div className="footer-widget menu-widget ">
             <h4 className="footer-title">Quick Links</h4>
-            <ul>
-              <li>
-                <Link href="/about">
-                  <a>About Us</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact">Documentation</Link>
-              </li>
-              <li>
-                <Link href="/services">
-                  <a>Services</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/services">Elements</Link>
-              </li>
-              <li>
-                <Link href="/portfolio-grid">
-                  <a>Our Projects</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/shop-grid">
-                  <a>Best Products</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/farmers">
-                  <a>Meet Farmers</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/service-details">
-                  <a>Technology</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog-grid">
-                  <a>Latest News</a>
-                </Link>
-              </li>
+            <ul>  
               <li>
                 <Link href="/contact">Contact Us</Link>
               </li>
               <li>
-                <Link href="/service-details">
-                  <a>Vegetables</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact">Setting &amp; Privacy</Link>
+                <Link href="/PrivacyPolicy">Setting &amp; Privacy</Link>
               </li>
             </ul>
           </div>
@@ -186,11 +140,11 @@ const DefaultFooter = ({logo}) => (
             <ul>
               <li>
                 <i className="fal fa-map-marker-alt" />
-                53 Main Street, 2nd Mountain 3rd Floor, New York
+                53 Main Street, 2nd Mountain 3rd Floor, Kanyakumari
               </li>
               <li>
                 <i className="far fa-envelope" />
-                <a href="calto:+012(345)67899">+012 (345) 678 99</a>
+                <a href="calto:+012(345)67899">+999 999 99 99</a>
               </li>
               <li>
                 <i className="far fa-phone" />
@@ -223,26 +177,6 @@ const DefaultFooter = ({logo}) => (
       <img
         className="footer-bg"
         src="/assets/images/background/footer-bg-shape.png"
-        alt="Shape"
-      />
-      <img
-        className="shape-one"
-        src="/assets/images/shapes/footer1.png"
-        alt="Shape"
-      />
-      <img
-        className="shape-two"
-        src="/assets/images/shapes/footer2.png"
-        alt="Shape"
-      />
-      <img
-        className="shape-three"
-        src="/assets/images/shapes/footer3.png"
-        alt="Shape"
-      />
-      <img
-        className="shape-four"
-        src="/assets/images/shapes/footer4.png"
         alt="Shape"
       />
     </div>

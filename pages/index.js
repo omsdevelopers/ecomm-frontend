@@ -120,7 +120,7 @@ const Index3 = () => {
                 className="offer-banner-item style-two wow fadeInUp delay-0-2s"
                 style={{
                   backgroundImage:
-                    "url(assets/images/offers/off2.jpg)",
+                    "url(assets/images/offers/off2.webp)",
                 }}
               >
                 <div className="content mb-0 ">
@@ -140,7 +140,7 @@ const Index3 = () => {
                 className="offer-banner-item style-two wow fadeInUp delay-0-4s"
                 style={{
                   backgroundImage:
-                    "url(assets/images/offers/off70.jpg)",
+                    "url(assets/images/offers/off70.webp)",
                 }}
               >
                 <div className="content mb-0">
@@ -160,7 +160,7 @@ const Index3 = () => {
                 className="offer-banner-item style-two wow fadeInUp delay-0-4s"
                 style={{
                   backgroundImage:
-                    "url(assets/images/offers/off3.jpg)",
+                    "url(assets/images/offers/off3.webp)",
                 }}
               >
                 <div className="content mb-0">
