@@ -165,7 +165,7 @@ const CartPage = () => {
               </div>
               <div className="col-lg-6">
                 <div className="update-shopping text-lg-right">
-                  <Link href="/shop-grid">
+                  <Link href="/shop">
                     <a className="theme-btn style-two">
                       shopping <i className="fas fa-angle-double-right" />
                     </a>
