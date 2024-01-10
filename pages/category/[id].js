@@ -24,8 +24,6 @@ const ShopGrid = () => {
   };
 
   useEffect(() => {
-   
-
     fetchProduct();
   }, [id]);
 
@@ -38,6 +36,7 @@ const ShopGrid = () => {
           <div className="shop-shorter rel z-3 pt-10 mb-40 wow fadeInUp delay-0-2s">
             {/* Add your sorting dropdown or other components here */}
           </div>
+
           <div className="row show-grid-row">
             {products.length > 0 ? (
               <>
@@ -45,7 +44,7 @@ const ShopGrid = () => {
                   <Link href={`/product-details/${product.id}`}>
                     <div
                       key={product.id}
-                      className="col-xl-3 col-lg-4 col-sm-6"
+                      className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 item fruits bread"
                     >
                       <div className="product-item wow fadeInUp delay-0-2s">
                         {product.offer && (
@@ -65,8 +64,8 @@ const ShopGrid = () => {
                         <div className="content">
                           <div className="ratting">
                             {/* {[...Array(product.rating)].map((_, index) => (
-                              <i key={index} className="fas fa-star" />
-                            ))} */}
+                    <i key={index} className="fas fa-star" />
+                  ))} */}
                           </div>
                           <h5>
                             <Link href={`/product-details/${product.id}`}>
@@ -93,6 +92,7 @@ const ShopGrid = () => {
               <center>No data found </center>
             )}
           </div>
+
           {/* <ul className="pagination flex-wrap justify-content-center pt-10">
             <Pagination
               paginationCls={".show-grid-row .col-xl-3"}
